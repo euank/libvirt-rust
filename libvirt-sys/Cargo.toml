@@ -2,6 +2,10 @@
 name = "libvirt-sys"
 version = "1.2.18"
 authors = ["Darius C. <darius.clark@cloudvlts.net>"]
+description = "Native bindings to libvirt library"
+repository = "https://github.com/cloudvlts/libvirt-rs"
+keywords = ["virtualization", "kvm"]
+license = "MIT"
 
 [lib]
 name = "libvirt_sys"
