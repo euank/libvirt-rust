@@ -2,6 +2,11 @@
 name = "libvirt"
 version = "0.1.0"
 authors = ["Darius C. <darius.clark@cloudvlts.net>"]
+description = "Libvirt bindings for rust"
+license = "MIT"
+repository = "https://github.com/cloudvlts/libvirt-rs"
+keywords = ["virtualization", "kvm"]
+
 
 [dependencies]
 libc = "0.1"
