@@ -1,0 +1,11 @@
+[package]
+name = "libvirt"
+version = "0.1.0"
+authors = ["Darius C. <darius.clark@cloudvlts.net>"]
+
+[dependencies]
+libc = "0.1"
+
+[dependencies.libvirt-sys]
+path = "libvirt-sys"
+version = "1.2.18"
