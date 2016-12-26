@@ -17,7 +17,7 @@ struct VirStorageVol {
 }
 
 struct VirStorageVolInfo {
-    ptr: virt::VirStorageVolInfo
+    ptr: virt::virStorageVolInfo
 }
 
 impl VirStoragePool {
@@ -73,14 +73,14 @@ impl VirStoragePool {
 
     pub fn get_autostart(self) -> Result<bool, VirError> {
         unsafe {
-            let out = 0 as *mut i8;
+            let out = 0 as *mut i32;
             let result = virt::virStoragePoolGetAutostart(self.ptr, out);
-            match result == -1 {
+            match result == -1 || out.is_null() {
                 true => Err(VirError::new()),
                 false => {
-                    match out {
+                    match *out {
                         1 => Ok(true),
-                        _ => Ok(false)
+                        _ => Ok(false),
                     }
                 }
             }
@@ -89,11 +89,11 @@ impl VirStoragePool {
 
     pub fn get_info(self) -> Result<VirStoragePoolInfo, VirError> {
         unsafe {
-            let info = ptr::null_mut::<virStoragePoolGetInfo>()
+            let info = ptr::null_mut();
             let result = virt::virStoragePoolGetInfo(self.ptr, info);
             match result == -1 {
                 true => Err(VirError::new()),
-                false => Ok(VirStoragePool{ptr:info})
+                false => Ok(VirStoragePoolInfo{ptr: *info})
             }
         }
     }
@@ -111,9 +111,11 @@ impl VirStoragePool {
     pub fn get_uuid(self) -> Result<String, VirError> {
         let mut array = [0i8; 37];
         let u = &mut array as *mut [i8] as *mut i8;
-        match virt::virStoragePoolGetUUIDString(self.ptr, u) != -1 {
-            true => Ok(String::from_utf8_lossy(CStr::from_ptr(u).to_bytes()).into_owned()),
-            false => Err(VirError::new())
+        unsafe {
+            match virt::virStoragePoolGetUUIDString(self.ptr, u) != -1 {
+                true => Ok(String::from_utf8_lossy(CStr::from_ptr(u).to_bytes()).into_owned()),
+                false => Err(VirError::new())
+            }
         }
     }
 
