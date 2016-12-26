@@ -2,7 +2,7 @@
 use std::ffi::*;
 use virt;
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct VirError {
     pub code: i8,
     pub domain: i8,
