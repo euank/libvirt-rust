@@ -5,6 +5,7 @@ use std::{string, ptr, mem, slice};
 use virt;
 use node::NodeInfo;
 use domain::VirDomain;
+use storage::VirStoragePool;
 use error::VirError;
 use self::libc::funcs::c95::stdlib;
 
@@ -326,6 +327,40 @@ impl Connection {
             match pDomain.is_null() {
                 true => Err(VirError::new()),
                 false => Ok(VirDomain{ptr: pDomain})
+            }
+        }
+    }
+
+    pub fn lookup_storage_pool_byname(&self, name: &str) -> Result<VirStoragePool, VirError> {
+        unsafe {
+            let dptr = virt::virStoragePoolLookupByName(self.conn, CString::new(name).unwrap().as_ptr());
+            match dptr.is_null() {
+                false => Ok(VirStoragePool{ptr: dptr}),
+                true => Err(VirError::new())
+            }
+        }
+    }
+
+    pub fn define_storage_pool(&self, xml: &str) -> Result<VirStoragePool, VirError> {
+        unsafe {
+            let cxml = CString::new(xml).unwrap();
+            let pDomain = virt::virStoragePoolDefineXML(self.conn, cxml.as_ptr(), 0);
+
+            match pDomain.is_null() {
+                true => Err(VirError::new()),
+                false => Ok(VirStoragePool{ptr: pDomain})
+            }
+        }
+    }
+
+    pub fn undefine_storage_pool(&self, xml: &str) -> Result<VirStoragePool, VirError> {
+        unsafe {
+            let cxml = CString::new(xml).unwrap();
+            let pDomain = virt::virStoragePoolDefineXML(self.conn, cxml.as_ptr(), 0);
+
+            match pDomain.is_null() {
+                true => Err(VirError::new()),
+                false => Ok(VirStoragePool{ptr: pDomain})
             }
         }
     }

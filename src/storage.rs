@@ -4,23 +4,28 @@ use virt;
 use error::VirError;
 use libc::funcs::c95::stdlib;
 
-struct VirStoragePool {
-    ptr: virt::virStoragePoolPtr
+#[derive(Clone)]
+pub struct VirStoragePool {
+    pub ptr: virt::virStoragePoolPtr
 }
 
-struct VirStoragePoolInfo {
-    ptr: virt::virStoragePoolInfo
+#[derive(Clone)]
+pub struct VirStoragePoolInfo {
+    pub ptr: virt::virStoragePoolInfo
 }
 
-struct VirStorageVol {
-    ptr: virt::virStorageVolPtr
+#[derive(Clone)]
+pub struct VirStorageVol {
+    pub ptr: virt::virStorageVolPtr
 }
 
-struct VirStorageVolInfo {
-    ptr: virt::virStorageVolInfo
+#[derive(Clone)]
+pub struct VirStorageVolInfo {
+    pub ptr: virt::virStorageVolInfo
 }
 
 impl VirStoragePool {
+
     pub fn create(self, flags: u32) -> Result<(), VirError> {
         unsafe {
             let result = virt::virStoragePoolCreate(self.ptr, flags);
@@ -60,6 +65,17 @@ impl VirStoragePool {
             }
         }
     }
+
+    pub fn undefine(self) -> Result<(), VirError> {
+        unsafe {
+            let result = virt::virStoragePoolUndefine(self.ptr);
+            match result == -1 {
+                true => Err(VirError::new()),
+                false => Ok(())
+            }
+        }
+    }
+
 
     pub fn free(self) -> Result<(), VirError> {
         unsafe {
