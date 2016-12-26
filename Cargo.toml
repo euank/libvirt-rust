@@ -14,3 +14,7 @@ libc = "0.1"
 [dependencies.libvirt-sys]
 path = "libvirt-sys"
 version = "1.2.18"
+
+[features]
+default = []
+integ-tests = []

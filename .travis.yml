@@ -1,0 +1,17 @@
+language: rust
+os: linux
+dist: trusty
+sudo: require
+
+rust:
+  - stable
+
+env:
+  - RUST_BACKTRACE=1
+
+install:
+  - sudo apt-get -qy install libvirt-bin libvirt-dev qemu
+  - sudo libvirtd --version
+
+script:
+  - cargo test --features=integ-tests
