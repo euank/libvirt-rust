@@ -3,6 +3,11 @@ cache: cargo
 os: linux
 dist: trusty
 sudo: require
+branches:
+  only:
+  - master
+  - dev
+
 
 rust:
   - stable
