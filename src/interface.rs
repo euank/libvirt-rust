@@ -1,5 +1,4 @@
 use std::ffi::*;
-use std::{string, ptr};
 use virt;
 use error::VirError;
 

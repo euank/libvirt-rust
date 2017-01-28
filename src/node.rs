@@ -1,5 +1,4 @@
 use std::ffi::*;
-use std::string;
 use virt;
 
 #[derive(Clone)]

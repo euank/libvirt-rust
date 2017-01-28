@@ -1,8 +1,7 @@
 use std::ffi::*;
-use std::{string, ptr, mem};
+use std::{ptr};
 use virt;
 use error::VirError;
-use libc::funcs::c95::stdlib;
 
 #[derive(Clone)]
 pub struct VirStoragePool {

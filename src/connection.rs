@@ -1,7 +1,7 @@
 extern crate libc;
 
 use std::ffi::*;
-use std::{string, ptr, mem, slice};
+use std::{ptr, mem, slice};
 use virt;
 use node::NodeInfo;
 use domain::VirDomain;
