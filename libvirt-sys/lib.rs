@@ -1,11 +1,11 @@
-//TODO: Do a complete clean up to make everything readable as possible.
+// TODO: Do a complete clean up to make everything readable as possible.
 
 extern crate libc;
 
 use self::libc::*;
 
-pub type virFreeCallback =
-    ::std::option::Option<extern "C" fn(opaque: *mut self::libc::c_void) -> ()>;
+pub type virFreeCallback = ::std::option::Option<extern "C" fn(opaque: *mut self::libc::c_void)
+                                                                 -> ()>;
 pub enum Struct__virConnect { }
 pub type virConnect = Struct__virConnect;
 pub type virConnectPtr = *mut virConnect;
@@ -92,10 +92,14 @@ pub struct Struct__virDomainControlInfo {
     pub stateTime: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virDomainControlInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainControlInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virDomainControlInfoPtr = *mut virDomainControlInfo;
 pub type Enum_Unnamed12 = self::libc::c_uint;
@@ -114,10 +118,14 @@ pub struct Struct__virDomainInfo {
     pub cpuTime: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virDomainInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virDomainInfoPtr = *mut virDomainInfo;
 pub type Enum_Unnamed13 = self::libc::c_uint;
@@ -142,10 +150,14 @@ pub struct Struct__virSecurityLabel {
     pub enforcing: self::libc::c_int,
 }
 impl ::std::clone::Clone for Struct__virSecurityLabel {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virSecurityLabel {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virSecurityLabel = Struct__virSecurityLabel;
 pub type virSecurityLabelPtr = *mut virSecurityLabel;
@@ -156,10 +168,14 @@ pub struct Struct__virSecurityModel {
     pub doi: [self::libc::c_char; 257usize],
 }
 impl ::std::clone::Clone for Struct__virSecurityModel {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virSecurityModel {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virSecurityModel = Struct__virSecurityModel;
 pub type virSecurityModelPtr = *mut virSecurityModel;
@@ -184,10 +200,14 @@ pub struct Struct__virTypedParameter {
     pub value: Union_Unnamed17,
 }
 impl ::std::clone::Clone for Struct__virTypedParameter {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virTypedParameter {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Copy)]
@@ -225,10 +245,14 @@ impl Union_Unnamed17 {
     }
 }
 impl ::std::clone::Clone for Union_Unnamed17 {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Union_Unnamed17 {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virTypedParameterPtr = *mut virTypedParameter;
 pub type virNodeInfo = Struct__virNodeInfo;
@@ -245,10 +269,14 @@ pub struct Struct__virNodeInfo {
     pub threads: self::libc::c_uint,
 }
 impl ::std::clone::Clone for Struct__virNodeInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virNodeInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type Enum_Unnamed18 = self::libc::c_int;
 pub const VIR_NODE_CPU_STATS_ALL_CPUS: self::libc::c_int = -1;
@@ -261,10 +289,14 @@ pub struct Struct__virNodeCPUStats {
     pub value: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virNodeCPUStats {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virNodeCPUStats {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type Enum_Unnamed19 = self::libc::c_int;
 pub const VIR_NODE_MEMORY_STATS_ALL_CELLS: self::libc::c_int = -1;
@@ -277,10 +309,14 @@ pub struct Struct__virNodeMemoryStats {
     pub value: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virNodeMemoryStats {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virNodeMemoryStats {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virDomainBlockStatsStruct = Struct__virDomainBlockStats;
 #[repr(C)]
@@ -293,10 +329,14 @@ pub struct Struct__virDomainBlockStats {
     pub errs: self::libc::c_longlong,
 }
 impl ::std::clone::Clone for Struct__virDomainBlockStats {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainBlockStats {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virDomainBlockStatsPtr = *mut virDomainBlockStatsStruct;
 pub type virDomainInterfaceStatsStruct = Struct__virDomainInterfaceStats;
@@ -313,10 +353,14 @@ pub struct Struct__virDomainInterfaceStats {
     pub tx_drop: self::libc::c_longlong,
 }
 impl ::std::clone::Clone for Struct__virDomainInterfaceStats {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainInterfaceStats {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virDomainInterfaceStatsPtr = *mut virDomainInterfaceStatsStruct;
 pub type Enum_Unnamed20 = self::libc::c_uint;
@@ -338,10 +382,14 @@ pub struct Struct__virDomainMemoryStat {
     pub val: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virDomainMemoryStat {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainMemoryStat {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virDomainMemoryStatPtr = *mut virDomainMemoryStatStruct;
 pub type Enum_Unnamed21 = self::libc::c_uint;
@@ -395,18 +443,22 @@ pub struct Struct__virConnectCredential {
     pub resultlen: self::libc::c_uint,
 }
 impl ::std::clone::Clone for Struct__virConnectCredential {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virConnectCredential {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virConnectCredential = Struct__virConnectCredential;
 pub type virConnectCredentialPtr = *mut virConnectCredential;
 pub type virConnectAuthCallbackPtr =
     ::std::option::Option<extern "C" fn(cred: virConnectCredentialPtr,
-                                        ncred: self::libc::c_uint,
-                                        cbdata: *mut self::libc::c_void)
-                              -> self::libc::c_int>;
+                                          ncred: self::libc::c_uint,
+                                          cbdata: *mut self::libc::c_void)
+                                          -> self::libc::c_int>;
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct__virConnectAuth {
@@ -416,10 +468,14 @@ pub struct Struct__virConnectAuth {
     pub cbdata: *mut self::libc::c_void,
 }
 impl ::std::clone::Clone for Struct__virConnectAuth {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virConnectAuth {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virConnectAuth = Struct__virConnectAuth;
 pub type virConnectAuthPtr = *mut virConnectAuth;
@@ -431,8 +487,9 @@ pub const VIR_CONNECT_CLOSE_REASON_CLIENT: self::libc::c_uint = 3;
 pub type virConnectCloseReason = Enum_Unnamed25;
 pub type virConnectCloseFunc =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        reason: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          reason: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed26 = self::libc::c_uint;
 pub const VIR_DOMAIN_SHUTDOWN_DEFAULT: self::libc::c_uint = 0;
 pub const VIR_DOMAIN_SHUTDOWN_ACPI_POWER_BTN: self::libc::c_uint = 1;
@@ -491,10 +548,14 @@ pub struct Struct__virDomainBlockInfo {
     pub physical: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virDomainBlockInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainBlockInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type Enum_Unnamed35 = self::libc::c_uint;
 pub const VIR_MEMORY_VIRTUAL: self::libc::c_uint = 1;
@@ -535,10 +596,14 @@ pub struct Struct__virVcpuInfo {
     pub cpu: self::libc::c_int,
 }
 impl ::std::clone::Clone for Struct__virVcpuInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virVcpuInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virVcpuInfoPtr = *mut virVcpuInfo;
 pub type Enum_Unnamed39 = self::libc::c_uint;
@@ -575,10 +640,14 @@ pub struct Struct__virDomainBlockJobInfo {
     pub end: virDomainBlockJobCursor,
 }
 impl ::std::clone::Clone for Struct__virDomainBlockJobInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainBlockJobInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virDomainBlockJobInfoPtr = *mut virDomainBlockJobInfo;
 pub type Enum_Unnamed43 = self::libc::c_uint;
@@ -605,10 +674,14 @@ pub struct Struct__virDomainDiskError {
     pub error: self::libc::c_int,
 }
 impl ::std::clone::Clone for Struct__virDomainDiskError {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainDiskError {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type Enum_Unnamed46 = self::libc::c_uint;
 pub const VIR_NETWORK_XML_INACTIVE: self::libc::c_uint = 1;
@@ -692,10 +765,14 @@ pub struct Struct__virStoragePoolInfo {
     pub available: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virStoragePoolInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virStoragePoolInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virStoragePoolInfoPtr = *mut virStoragePoolInfo;
 pub enum Struct__virStorageVol { }
@@ -732,10 +809,14 @@ pub struct Struct__virStorageVolInfo {
     pub allocation: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virStorageVolInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virStorageVolInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub type virStorageVolInfoPtr = *mut virStorageVolInfo;
 pub type Enum_Unnamed59 = self::libc::c_uint;
@@ -862,8 +943,7 @@ pub const VIR_CONNECT_LIST_NODE_DEVICES_CAP_SCSI: self::libc::c_uint = 128;
 pub const VIR_CONNECT_LIST_NODE_DEVICES_CAP_STORAGE: self::libc::c_uint = 256;
 pub const VIR_CONNECT_LIST_NODE_DEVICES_CAP_FC_HOST: self::libc::c_uint = 512;
 pub const VIR_CONNECT_LIST_NODE_DEVICES_CAP_VPORTS: self::libc::c_uint = 1024;
-pub const VIR_CONNECT_LIST_NODE_DEVICES_CAP_SCSI_GENERIC: self::libc::c_uint =
-    2048;
+pub const VIR_CONNECT_LIST_NODE_DEVICES_CAP_SCSI_GENERIC: self::libc::c_uint = 2048;
 pub type virConnectListAllNodeDeviceFlags = Enum_Unnamed65;
 pub type Enum_Unnamed66 = self::libc::c_uint;
 pub const VIR_DOMAIN_EVENT_DEFINED: self::libc::c_uint = 0;
@@ -925,11 +1005,11 @@ pub const VIR_DOMAIN_EVENT_CRASHED_PANICKED: self::libc::c_uint = 0;
 pub type virDomainEventCrashedDetailType = Enum_Unnamed75;
 pub type virConnectDomainEventCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        event: self::libc::c_int,
-                                        detail: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void)
-                              -> self::libc::c_int>;
+                                          dom: virDomainPtr,
+                                          event: self::libc::c_int,
+                                          detail: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> self::libc::c_int>;
 pub type Enum_Unnamed76 = self::libc::c_uint;
 pub const VIR_EVENT_HANDLE_READABLE: self::libc::c_uint = 1;
 pub const VIR_EVENT_HANDLE_WRITABLE: self::libc::c_uint = 2;
@@ -938,37 +1018,36 @@ pub const VIR_EVENT_HANDLE_HANGUP: self::libc::c_uint = 8;
 pub type virEventHandleType = Enum_Unnamed76;
 pub type virEventHandleCallback =
     ::std::option::Option<extern "C" fn(watch: self::libc::c_int,
-                                        fd: self::libc::c_int,
-                                        events: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          fd: self::libc::c_int,
+                                          events: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virEventAddHandleFunc =
     ::std::option::Option<extern "C" fn(fd: self::libc::c_int,
-                                        event: self::libc::c_int,
-                                        cb: virEventHandleCallback,
-                                        opaque: *mut self::libc::c_void,
-                                        ff: virFreeCallback)
-                              -> self::libc::c_int>;
+                                          event: self::libc::c_int,
+                                          cb: virEventHandleCallback,
+                                          opaque: *mut self::libc::c_void,
+                                          ff: virFreeCallback)
+                                          -> self::libc::c_int>;
 pub type virEventUpdateHandleFunc =
-    ::std::option::Option<extern "C" fn(watch: self::libc::c_int,
-                                        event: self::libc::c_int) -> ()>;
+    ::std::option::Option<extern "C" fn(watch: self::libc::c_int, event: self::libc::c_int) -> ()>;
 pub type virEventRemoveHandleFunc =
-    ::std::option::Option<extern "C" fn(watch: self::libc::c_int)
-                              -> self::libc::c_int>;
+    ::std::option::Option<extern "C" fn(watch: self::libc::c_int) -> self::libc::c_int>;
 pub type virEventTimeoutCallback =
     ::std::option::Option<extern "C" fn(timer: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virEventAddTimeoutFunc =
     ::std::option::Option<extern "C" fn(timeout: self::libc::c_int,
-                                        cb: virEventTimeoutCallback,
-                                        opaque: *mut self::libc::c_void,
-                                        ff: virFreeCallback)
-                              -> self::libc::c_int>;
+                                          cb: virEventTimeoutCallback,
+                                          opaque: *mut self::libc::c_void,
+                                          ff: virFreeCallback)
+                                          -> self::libc::c_int>;
 pub type virEventUpdateTimeoutFunc =
-    ::std::option::Option<extern "C" fn(timer: self::libc::c_int,
-                                        timeout: self::libc::c_int) -> ()>;
+    ::std::option::Option<extern "C" fn(timer: self::libc::c_int, timeout: self::libc::c_int)
+                                          -> ()>;
 pub type virEventRemoveTimeoutFunc =
-    ::std::option::Option<extern "C" fn(timer: self::libc::c_int)
-                              -> self::libc::c_int>;
+    ::std::option::Option<extern "C" fn(timer: self::libc::c_int) -> self::libc::c_int>;
 pub enum Struct__virSecret { }
 pub type virSecret = Struct__virSecret;
 pub type virSecretPtr = *mut virSecret;
@@ -989,16 +1068,16 @@ pub const VIR_STREAM_NONBLOCK: self::libc::c_uint = 1;
 pub type virStreamFlags = Enum_Unnamed79;
 pub type virStreamSourceFunc =
     ::std::option::Option<extern "C" fn(st: virStreamPtr,
-                                        data: *mut self::libc::c_char,
-                                        nbytes: size_t,
-                                        opaque: *mut self::libc::c_void)
-                              -> self::libc::c_int>;
+                                          data: *mut self::libc::c_char,
+                                          nbytes: size_t,
+                                          opaque: *mut self::libc::c_void)
+                                          -> self::libc::c_int>;
 pub type virStreamSinkFunc =
     ::std::option::Option<extern "C" fn(st: virStreamPtr,
-                                        data: *const self::libc::c_char,
-                                        nbytes: size_t,
-                                        opaque: *mut self::libc::c_void)
-                              -> self::libc::c_int>;
+                                          data: *const self::libc::c_char,
+                                          nbytes: size_t,
+                                          opaque: *mut self::libc::c_void)
+                                          -> self::libc::c_int>;
 pub type Enum_Unnamed80 = self::libc::c_uint;
 pub const VIR_STREAM_EVENT_READABLE: self::libc::c_uint = 1;
 pub const VIR_STREAM_EVENT_WRITABLE: self::libc::c_uint = 2;
@@ -1007,8 +1086,9 @@ pub const VIR_STREAM_EVENT_HANGUP: self::libc::c_uint = 8;
 pub type virStreamEventType = Enum_Unnamed80;
 pub type virStreamEventCallback =
     ::std::option::Option<extern "C" fn(stream: virStreamPtr,
-                                        events: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          events: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed81 = self::libc::c_int;
 pub const VIR_CPU_COMPARE_ERROR: self::libc::c_int = -1;
 pub const VIR_CPU_COMPARE_INCOMPATIBLE: self::libc::c_int = 0;
@@ -1045,10 +1125,14 @@ pub struct Struct__virDomainJobInfo {
     pub fileRemaining: self::libc::c_ulonglong,
 }
 impl ::std::clone::Clone for Struct__virDomainJobInfo {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainJobInfo {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 pub enum Struct__virDomainSnapshot { }
 pub type virDomainSnapshot = Struct__virDomainSnapshot;
@@ -1089,13 +1173,15 @@ pub const VIR_DOMAIN_SNAPSHOT_DELETE_CHILDREN_ONLY: self::libc::c_uint = 4;
 pub type virDomainSnapshotDeleteFlags = Enum_Unnamed87;
 pub type virConnectDomainEventGenericCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virConnectDomainEventRTCChangeCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        utcoffset: self::libc::c_longlong,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          utcoffset: self::libc::c_longlong,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed88 = self::libc::c_uint;
 pub const VIR_DOMAIN_EVENT_WATCHDOG_NONE: self::libc::c_uint = 0;
 pub const VIR_DOMAIN_EVENT_WATCHDOG_PAUSE: self::libc::c_uint = 1;
@@ -1106,9 +1192,10 @@ pub const VIR_DOMAIN_EVENT_WATCHDOG_DEBUG: self::libc::c_uint = 5;
 pub type virDomainEventWatchdogAction = Enum_Unnamed88;
 pub type virConnectDomainEventWatchdogCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        action: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          action: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed89 = self::libc::c_uint;
 pub const VIR_DOMAIN_EVENT_IO_ERROR_NONE: self::libc::c_uint = 0;
 pub const VIR_DOMAIN_EVENT_IO_ERROR_PAUSE: self::libc::c_uint = 1;
@@ -1116,19 +1203,21 @@ pub const VIR_DOMAIN_EVENT_IO_ERROR_REPORT: self::libc::c_uint = 2;
 pub type virDomainEventIOErrorAction = Enum_Unnamed89;
 pub type virConnectDomainEventIOErrorCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        srcPath: *const self::libc::c_char,
-                                        devAlias: *const self::libc::c_char,
-                                        action: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          srcPath: *const self::libc::c_char,
+                                          devAlias: *const self::libc::c_char,
+                                          action: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virConnectDomainEventIOErrorReasonCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        srcPath: *const self::libc::c_char,
-                                        devAlias: *const self::libc::c_char,
-                                        action: self::libc::c_int,
-                                        reason: *const self::libc::c_char,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          srcPath: *const self::libc::c_char,
+                                          devAlias: *const self::libc::c_char,
+                                          action: self::libc::c_int,
+                                          reason: *const self::libc::c_char,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed90 = self::libc::c_uint;
 pub const VIR_DOMAIN_EVENT_GRAPHICS_CONNECT: self::libc::c_uint = 0;
 pub const VIR_DOMAIN_EVENT_GRAPHICS_INITIALIZE: self::libc::c_uint = 1;
@@ -1147,15 +1236,17 @@ pub struct Struct__virDomainEventGraphicsAddress {
     pub service: *mut self::libc::c_char,
 }
 impl ::std::clone::Clone for Struct__virDomainEventGraphicsAddress {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainEventGraphicsAddress {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
-pub type virDomainEventGraphicsAddress =
-    Struct__virDomainEventGraphicsAddress;
-pub type virDomainEventGraphicsAddressPtr =
-    *mut virDomainEventGraphicsAddress;
+pub type virDomainEventGraphicsAddress = Struct__virDomainEventGraphicsAddress;
+pub type virDomainEventGraphicsAddressPtr = *mut virDomainEventGraphicsAddress;
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct__virDomainEventGraphicsSubjectIdentity {
@@ -1163,16 +1254,17 @@ pub struct Struct__virDomainEventGraphicsSubjectIdentity {
     pub name: *mut self::libc::c_char,
 }
 impl ::std::clone::Clone for Struct__virDomainEventGraphicsSubjectIdentity {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-impl ::std::default::Default for Struct__virDomainEventGraphicsSubjectIdentity
- {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+impl ::std::default::Default for Struct__virDomainEventGraphicsSubjectIdentity {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
-pub type virDomainEventGraphicsSubjectIdentity =
-    Struct__virDomainEventGraphicsSubjectIdentity;
-pub type virDomainEventGraphicsSubjectIdentityPtr =
-    *mut virDomainEventGraphicsSubjectIdentity;
+pub type virDomainEventGraphicsSubjectIdentity = Struct__virDomainEventGraphicsSubjectIdentity;
+pub type virDomainEventGraphicsSubjectIdentityPtr = *mut virDomainEventGraphicsSubjectIdentity;
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct__virDomainEventGraphicsSubject {
@@ -1180,27 +1272,27 @@ pub struct Struct__virDomainEventGraphicsSubject {
     pub identities: virDomainEventGraphicsSubjectIdentityPtr,
 }
 impl ::std::clone::Clone for Struct__virDomainEventGraphicsSubject {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virDomainEventGraphicsSubject {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
-pub type virDomainEventGraphicsSubject =
-    Struct__virDomainEventGraphicsSubject;
-pub type virDomainEventGraphicsSubjectPtr =
-    *mut virDomainEventGraphicsSubject;
+pub type virDomainEventGraphicsSubject = Struct__virDomainEventGraphicsSubject;
+pub type virDomainEventGraphicsSubjectPtr = *mut virDomainEventGraphicsSubject;
 pub type virConnectDomainEventGraphicsCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        phase: self::libc::c_int,
-                                        local:
-                                            *const virDomainEventGraphicsAddress,
-                                        remote:
-                                            *const virDomainEventGraphicsAddress,
-                                        authScheme: *const self::libc::c_char,
-                                        subject:
-                                            *const virDomainEventGraphicsSubject,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          phase: self::libc::c_int,
+                                          local: *const virDomainEventGraphicsAddress,
+                                          remote: *const virDomainEventGraphicsAddress,
+                                          authScheme: *const self::libc::c_char,
+                                          subject: *const virDomainEventGraphicsSubject,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed92 = self::libc::c_uint;
 pub const VIR_DOMAIN_BLOCK_JOB_COMPLETED: self::libc::c_uint = 0;
 pub const VIR_DOMAIN_BLOCK_JOB_FAILED: self::libc::c_uint = 1;
@@ -1209,58 +1301,66 @@ pub const VIR_DOMAIN_BLOCK_JOB_READY: self::libc::c_uint = 3;
 pub type virConnectDomainEventBlockJobStatus = Enum_Unnamed92;
 pub type virConnectDomainEventBlockJobCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        disk: *const self::libc::c_char,
-                                        _type: self::libc::c_int,
-                                        status: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          disk: *const self::libc::c_char,
+                                          _type: self::libc::c_int,
+                                          status: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed93 = self::libc::c_uint;
 pub const VIR_DOMAIN_EVENT_DISK_CHANGE_MISSING_ON_START: self::libc::c_uint = 0;
 pub const VIR_DOMAIN_EVENT_DISK_DROP_MISSING_ON_START: self::libc::c_uint = 1;
 pub type virConnectDomainEventDiskChangeReason = Enum_Unnamed93;
 pub type virConnectDomainEventDiskChangeCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        oldSrcPath: *const self::libc::c_char,
-                                        newSrcPath: *const self::libc::c_char,
-                                        devAlias: *const self::libc::c_char,
-                                        reason: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          oldSrcPath: *const self::libc::c_char,
+                                          newSrcPath: *const self::libc::c_char,
+                                          devAlias: *const self::libc::c_char,
+                                          reason: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed94 = self::libc::c_uint;
 pub const VIR_DOMAIN_EVENT_TRAY_CHANGE_OPEN: self::libc::c_uint = 0;
 pub const VIR_DOMAIN_EVENT_TRAY_CHANGE_CLOSE: self::libc::c_uint = 1;
 pub type virDomainEventTrayChangeReason = Enum_Unnamed94;
 pub type virConnectDomainEventTrayChangeCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        devAlias: *const self::libc::c_char,
-                                        reason: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          devAlias: *const self::libc::c_char,
+                                          reason: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virConnectDomainEventPMWakeupCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        reason: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          reason: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virConnectDomainEventPMSuspendCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        reason: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          reason: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virConnectDomainEventBalloonChangeCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        actual: self::libc::c_ulonglong,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          actual: self::libc::c_ulonglong,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virConnectDomainEventPMSuspendDiskCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        reason: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          reason: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type virConnectDomainEventDeviceRemovedCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        dom: virDomainPtr,
-                                        devAlias: *const self::libc::c_char,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          dom: virDomainPtr,
+                                          devAlias: *const self::libc::c_char,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed95 = self::libc::c_uint;
 pub const VIR_DOMAIN_EVENT_ID_LIFECYCLE: self::libc::c_uint = 0;
 pub const VIR_DOMAIN_EVENT_ID_REBOOT: self::libc::c_uint = 1;
@@ -1287,17 +1387,19 @@ pub const VIR_NETWORK_EVENT_STOPPED: self::libc::c_uint = 3;
 pub type virNetworkEventLifecycleType = Enum_Unnamed96;
 pub type virConnectNetworkEventLifecycleCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        net: virNetworkPtr,
-                                        event: self::libc::c_int,
-                                        detail: self::libc::c_int,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          net: virNetworkPtr,
+                                          event: self::libc::c_int,
+                                          detail: self::libc::c_int,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub type Enum_Unnamed97 = self::libc::c_uint;
 pub const VIR_NETWORK_EVENT_ID_LIFECYCLE: self::libc::c_uint = 0;
 pub type virNetworkEventID = Enum_Unnamed97;
 pub type virConnectNetworkEventGenericCallback =
     ::std::option::Option<extern "C" fn(conn: virConnectPtr,
-                                        net: virNetworkPtr,
-                                        opaque: *mut self::libc::c_void) -> ()>;
+                                          net: virNetworkPtr,
+                                          opaque: *mut self::libc::c_void)
+                                          -> ()>;
 pub enum Struct__virNWFilter { }
 pub type virNWFilter = Struct__virNWFilter;
 pub type virNWFilterPtr = *mut virNWFilter;
@@ -1507,9 +1609,9 @@ pub const VIR_ERR_CPU_INCOMPATIBLE: ::libc::c_uint = 91;
 pub const VIR_ERR_XML_INVALID_SCHEMA: ::libc::c_uint = 92;
 pub const VIR_ERR_MIGRATE_FINISH_OK: ::libc::c_uint = 93;
 pub type virErrorNumber = Enum_Unnamed137;
-pub type virErrorFunc =
-    ::std::option::Option<extern "C" fn(userData: *mut ::libc::c_void,
-                                        error: virErrorPtr) -> ()>;
+pub type virErrorFunc = ::std::option::Option<extern "C" fn(userData: *mut ::libc::c_void,
+                                                              error: virErrorPtr)
+                                                              -> ()>;
 pub type virErrorDomain = Enum_Unnamed136;
 pub type virError = Struct__virError;
 pub type virErrorPtr = *mut virError;
@@ -1530,10 +1632,14 @@ pub struct Struct__virError {
     pub net: virNetworkPtr,
 }
 impl ::std::clone::Clone for Struct__virError {
-    fn clone(&self) -> Self { *self }
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl ::std::default::Default for Struct__virError {
-    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 
 #[link(name = "virt")]
@@ -1545,138 +1651,153 @@ extern "C" {
     pub fn virTypedParamsGet(params: virTypedParameterPtr,
                              nparams: self::libc::c_int,
                              name: *const self::libc::c_char)
-     -> virTypedParameterPtr;
+                             -> virTypedParameterPtr;
     pub fn virTypedParamsGetInt(params: virTypedParameterPtr,
                                 nparams: self::libc::c_int,
                                 name: *const self::libc::c_char,
-                                value: *mut self::libc::c_int) -> self::libc::c_int;
+                                value: *mut self::libc::c_int)
+                                -> self::libc::c_int;
     pub fn virTypedParamsGetUInt(params: virTypedParameterPtr,
                                  nparams: self::libc::c_int,
                                  name: *const self::libc::c_char,
-                                 value: *mut self::libc::c_uint) -> self::libc::c_int;
+                                 value: *mut self::libc::c_uint)
+                                 -> self::libc::c_int;
     pub fn virTypedParamsGetLLong(params: virTypedParameterPtr,
                                   nparams: self::libc::c_int,
                                   name: *const self::libc::c_char,
                                   value: *mut self::libc::c_longlong)
-     -> self::libc::c_int;
+                                  -> self::libc::c_int;
     pub fn virTypedParamsGetULLong(params: virTypedParameterPtr,
                                    nparams: self::libc::c_int,
                                    name: *const self::libc::c_char,
                                    value: *mut self::libc::c_ulonglong)
-     -> self::libc::c_int;
+                                   -> self::libc::c_int;
     pub fn virTypedParamsGetDouble(params: virTypedParameterPtr,
                                    nparams: self::libc::c_int,
                                    name: *const self::libc::c_char,
                                    value: *mut self::libc::c_double)
-     -> self::libc::c_int;
+                                   -> self::libc::c_int;
     pub fn virTypedParamsGetBoolean(params: virTypedParameterPtr,
                                     nparams: self::libc::c_int,
                                     name: *const self::libc::c_char,
                                     value: *mut self::libc::c_int)
-     -> self::libc::c_int;
+                                    -> self::libc::c_int;
     pub fn virTypedParamsGetString(params: virTypedParameterPtr,
                                    nparams: self::libc::c_int,
                                    name: *const self::libc::c_char,
                                    value: *mut *const self::libc::c_char)
-     -> self::libc::c_int;
+                                   -> self::libc::c_int;
     pub fn virTypedParamsAddInt(params: *mut virTypedParameterPtr,
                                 nparams: *mut self::libc::c_int,
                                 maxparams: *mut self::libc::c_int,
                                 name: *const self::libc::c_char,
-                                value: self::libc::c_int) -> self::libc::c_int;
+                                value: self::libc::c_int)
+                                -> self::libc::c_int;
     pub fn virTypedParamsAddUInt(params: *mut virTypedParameterPtr,
                                  nparams: *mut self::libc::c_int,
                                  maxparams: *mut self::libc::c_int,
                                  name: *const self::libc::c_char,
-                                 value: self::libc::c_uint) -> self::libc::c_int;
+                                 value: self::libc::c_uint)
+                                 -> self::libc::c_int;
     pub fn virTypedParamsAddLLong(params: *mut virTypedParameterPtr,
                                   nparams: *mut self::libc::c_int,
                                   maxparams: *mut self::libc::c_int,
                                   name: *const self::libc::c_char,
-                                  value: self::libc::c_longlong) -> self::libc::c_int;
+                                  value: self::libc::c_longlong)
+                                  -> self::libc::c_int;
     pub fn virTypedParamsAddULLong(params: *mut virTypedParameterPtr,
                                    nparams: *mut self::libc::c_int,
                                    maxparams: *mut self::libc::c_int,
                                    name: *const self::libc::c_char,
                                    value: self::libc::c_ulonglong)
-     -> self::libc::c_int;
+                                   -> self::libc::c_int;
     pub fn virTypedParamsAddDouble(params: *mut virTypedParameterPtr,
                                    nparams: *mut self::libc::c_int,
                                    maxparams: *mut self::libc::c_int,
                                    name: *const self::libc::c_char,
-                                   value: self::libc::c_double) -> self::libc::c_int;
+                                   value: self::libc::c_double)
+                                   -> self::libc::c_int;
     pub fn virTypedParamsAddBoolean(params: *mut virTypedParameterPtr,
                                     nparams: *mut self::libc::c_int,
                                     maxparams: *mut self::libc::c_int,
                                     name: *const self::libc::c_char,
-                                    value: self::libc::c_int) -> self::libc::c_int;
+                                    value: self::libc::c_int)
+                                    -> self::libc::c_int;
     pub fn virTypedParamsAddString(params: *mut virTypedParameterPtr,
                                    nparams: *mut self::libc::c_int,
                                    maxparams: *mut self::libc::c_int,
                                    name: *const self::libc::c_char,
                                    value: *const self::libc::c_char)
-     -> self::libc::c_int;
+                                   -> self::libc::c_int;
     pub fn virTypedParamsAddFromString(params: *mut virTypedParameterPtr,
                                        nparams: *mut self::libc::c_int,
                                        maxparams: *mut self::libc::c_int,
                                        name: *const self::libc::c_char,
                                        _type: self::libc::c_int,
                                        value: *const self::libc::c_char)
-     -> self::libc::c_int;
-    pub fn virTypedParamsClear(params: virTypedParameterPtr,
-                               nparams: self::libc::c_int) -> ();
-    pub fn virTypedParamsFree(params: virTypedParameterPtr,
-                              nparams: self::libc::c_int) -> ();
+                                       -> self::libc::c_int;
+    pub fn virTypedParamsClear(params: virTypedParameterPtr, nparams: self::libc::c_int) -> ();
+    pub fn virTypedParamsFree(params: virTypedParameterPtr, nparams: self::libc::c_int) -> ();
     pub fn virNodeGetMemoryParameters(conn: virConnectPtr,
                                       params: virTypedParameterPtr,
                                       nparams: *mut self::libc::c_int,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virNodeSetMemoryParameters(conn: virConnectPtr,
                                       params: virTypedParameterPtr,
                                       nparams: self::libc::c_int,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virNodeGetCPUMap(conn: virConnectPtr,
                             cpumap: *mut *mut self::libc::c_uchar,
                             online: *mut self::libc::c_uint,
-                            flags: self::libc::c_uint) -> self::libc::c_int;
+                            flags: self::libc::c_uint)
+                            -> self::libc::c_int;
     pub fn virDomainGetSchedulerParameters(domain: virDomainPtr,
                                            params: virTypedParameterPtr,
                                            nparams: *mut self::libc::c_int)
-     -> self::libc::c_int;
+                                           -> self::libc::c_int;
     pub fn virDomainGetSchedulerParametersFlags(domain: virDomainPtr,
                                                 params: virTypedParameterPtr,
                                                 nparams: *mut self::libc::c_int,
                                                 flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                                -> self::libc::c_int;
     pub fn virDomainSetSchedulerParameters(domain: virDomainPtr,
                                            params: virTypedParameterPtr,
                                            nparams: self::libc::c_int)
-     -> self::libc::c_int;
+                                           -> self::libc::c_int;
     pub fn virDomainSetSchedulerParametersFlags(domain: virDomainPtr,
                                                 params: virTypedParameterPtr,
                                                 nparams: self::libc::c_int,
                                                 flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainMigrate(domain: virDomainPtr, dconn: virConnectPtr,
+                                                -> self::libc::c_int;
+    pub fn virDomainMigrate(domain: virDomainPtr,
+                            dconn: virConnectPtr,
                             flags: self::libc::c_ulong,
                             dname: *const self::libc::c_char,
                             uri: *const self::libc::c_char,
-                            bandwidth: self::libc::c_ulong) -> virDomainPtr;
-    pub fn virDomainMigrate2(domain: virDomainPtr, dconn: virConnectPtr,
+                            bandwidth: self::libc::c_ulong)
+                            -> virDomainPtr;
+    pub fn virDomainMigrate2(domain: virDomainPtr,
+                             dconn: virConnectPtr,
                              dxml: *const self::libc::c_char,
                              flags: self::libc::c_ulong,
                              dname: *const self::libc::c_char,
                              uri: *const self::libc::c_char,
-                             bandwidth: self::libc::c_ulong) -> virDomainPtr;
-    pub fn virDomainMigrate3(domain: virDomainPtr, dconn: virConnectPtr,
+                             bandwidth: self::libc::c_ulong)
+                             -> virDomainPtr;
+    pub fn virDomainMigrate3(domain: virDomainPtr,
+                             dconn: virConnectPtr,
                              params: virTypedParameterPtr,
-                             nparams: self::libc::c_uint, flags: self::libc::c_uint)
-     -> virDomainPtr;
+                             nparams: self::libc::c_uint,
+                             flags: self::libc::c_uint)
+                             -> virDomainPtr;
     pub fn virDomainMigrateToURI(domain: virDomainPtr,
                                  duri: *const self::libc::c_char,
                                  flags: self::libc::c_ulong,
                                  dname: *const self::libc::c_char,
-                                 bandwidth: self::libc::c_ulong) -> self::libc::c_int;
+                                 bandwidth: self::libc::c_ulong)
+                                 -> self::libc::c_int;
     pub fn virDomainMigrateToURI2(domain: virDomainPtr,
                                   dconnuri: *const self::libc::c_char,
                                   miguri: *const self::libc::c_char,
@@ -1684,121 +1805,132 @@ extern "C" {
                                   flags: self::libc::c_ulong,
                                   dname: *const self::libc::c_char,
                                   bandwidth: self::libc::c_ulong)
-     -> self::libc::c_int;
+                                  -> self::libc::c_int;
     pub fn virDomainMigrateToURI3(domain: virDomainPtr,
                                   dconnuri: *const self::libc::c_char,
                                   params: virTypedParameterPtr,
                                   nparams: self::libc::c_uint,
-                                  flags: self::libc::c_uint) -> self::libc::c_int;
+                                  flags: self::libc::c_uint)
+                                  -> self::libc::c_int;
     pub fn virDomainMigrateSetMaxDowntime(domain: virDomainPtr,
                                           downtime: self::libc::c_ulonglong,
                                           flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                          -> self::libc::c_int;
     pub fn virDomainMigrateGetCompressionCache(domain: virDomainPtr,
-                                               cacheSize:
-                                                   *mut self::libc::c_ulonglong,
+                                               cacheSize: *mut self::libc::c_ulonglong,
                                                flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                               -> self::libc::c_int;
     pub fn virDomainMigrateSetCompressionCache(domain: virDomainPtr,
                                                cacheSize: self::libc::c_ulonglong,
                                                flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                               -> self::libc::c_int;
     pub fn virDomainMigrateSetMaxSpeed(domain: virDomainPtr,
                                        bandwidth: self::libc::c_ulong,
                                        flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                       -> self::libc::c_int;
     pub fn virDomainMigrateGetMaxSpeed(domain: virDomainPtr,
                                        bandwidth: *mut self::libc::c_ulong,
                                        flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                       -> self::libc::c_int;
     pub fn virGetVersion(libVer: *mut self::libc::c_ulong,
                          _type: *const self::libc::c_char,
-                         typeVer: *mut self::libc::c_ulong) -> self::libc::c_int;
+                         typeVer: *mut self::libc::c_ulong)
+                         -> self::libc::c_int;
     pub fn virInitialize() -> self::libc::c_int;
     pub fn virConnectOpen(name: *const self::libc::c_char) -> virConnectPtr;
-    pub fn virConnectOpenReadOnly(name: *const self::libc::c_char)
-     -> virConnectPtr;
+    pub fn virConnectOpenReadOnly(name: *const self::libc::c_char) -> virConnectPtr;
     pub fn virConnectOpenAuth(name: *const self::libc::c_char,
-                              auth: virConnectAuthPtr, flags: self::libc::c_uint)
-     -> virConnectPtr;
+                              auth: virConnectAuthPtr,
+                              flags: self::libc::c_uint)
+                              -> virConnectPtr;
     pub fn virConnectRef(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectClose(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectGetType(conn: virConnectPtr) -> *const self::libc::c_char;
     pub fn virConnectGetVersion(conn: virConnectPtr,
-                                hvVer: *mut self::libc::c_ulong) -> self::libc::c_int;
+                                hvVer: *mut self::libc::c_ulong)
+                                -> self::libc::c_int;
     pub fn virConnectGetLibVersion(conn: virConnectPtr,
                                    libVer: *mut self::libc::c_ulong)
-     -> self::libc::c_int;
+                                   -> self::libc::c_int;
     pub fn virConnectGetHostname(conn: virConnectPtr) -> *mut self::libc::c_char;
     pub fn virConnectGetURI(conn: virConnectPtr) -> *mut self::libc::c_char;
-    pub fn virConnectGetSysinfo(conn: virConnectPtr, flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+    pub fn virConnectGetSysinfo(conn: virConnectPtr,
+                                flags: self::libc::c_uint)
+                                -> *mut self::libc::c_char;
     pub fn virConnectSetKeepAlive(conn: virConnectPtr,
                                   interval: self::libc::c_int,
-                                  count: self::libc::c_uint) -> self::libc::c_int;
+                                  count: self::libc::c_uint)
+                                  -> self::libc::c_int;
     pub fn virConnectRegisterCloseCallback(conn: virConnectPtr,
                                            cb: virConnectCloseFunc,
                                            opaque: *mut self::libc::c_void,
                                            freecb: virFreeCallback)
-     -> self::libc::c_int;
+                                           -> self::libc::c_int;
     pub fn virConnectUnregisterCloseCallback(conn: virConnectPtr,
                                              cb: virConnectCloseFunc)
-     -> self::libc::c_int;
+                                             -> self::libc::c_int;
     pub fn virConnectGetMaxVcpus(conn: virConnectPtr,
                                  _type: *const self::libc::c_char)
-     -> self::libc::c_int;
-    pub fn virNodeGetInfo(conn: virConnectPtr, info: virNodeInfoPtr)
-     -> self::libc::c_int;
-    pub fn virConnectGetCapabilities(conn: virConnectPtr)
-     -> *mut self::libc::c_char;
-    pub fn virNodeGetCPUStats(conn: virConnectPtr, cpuNum: self::libc::c_int,
+                                 -> self::libc::c_int;
+    pub fn virNodeGetInfo(conn: virConnectPtr, info: virNodeInfoPtr) -> self::libc::c_int;
+    pub fn virConnectGetCapabilities(conn: virConnectPtr) -> *mut self::libc::c_char;
+    pub fn virNodeGetCPUStats(conn: virConnectPtr,
+                              cpuNum: self::libc::c_int,
                               params: virNodeCPUStatsPtr,
                               nparams: *mut self::libc::c_int,
-                              flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virNodeGetMemoryStats(conn: virConnectPtr, cellNum: self::libc::c_int,
+                              flags: self::libc::c_uint)
+                              -> self::libc::c_int;
+    pub fn virNodeGetMemoryStats(conn: virConnectPtr,
+                                 cellNum: self::libc::c_int,
                                  params: virNodeMemoryStatsPtr,
                                  nparams: *mut self::libc::c_int,
-                                 flags: self::libc::c_uint) -> self::libc::c_int;
+                                 flags: self::libc::c_uint)
+                                 -> self::libc::c_int;
     pub fn virNodeGetFreeMemory(conn: virConnectPtr) -> self::libc::c_ulonglong;
     pub fn virNodeGetSecurityModel(conn: virConnectPtr,
                                    secmodel: virSecurityModelPtr)
-     -> self::libc::c_int;
+                                   -> self::libc::c_int;
     pub fn virNodeSuspendForDuration(conn: virConnectPtr,
                                      target: self::libc::c_uint,
                                      duration: self::libc::c_ulonglong,
-                                     flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virConnectListDomains(conn: virConnectPtr, ids: *mut self::libc::c_int,
-                                 maxids: self::libc::c_int) -> self::libc::c_int;
+                                     flags: self::libc::c_uint)
+                                     -> self::libc::c_int;
+    pub fn virConnectListDomains(conn: virConnectPtr,
+                                 ids: *mut self::libc::c_int,
+                                 maxids: self::libc::c_int)
+                                 -> self::libc::c_int;
     pub fn virConnectNumOfDomains(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virDomainGetConnect(domain: virDomainPtr) -> virConnectPtr;
     pub fn virDomainCreateXML(conn: virConnectPtr,
                               xmlDesc: *const self::libc::c_char,
-                              flags: self::libc::c_uint) -> virDomainPtr;
+                              flags: self::libc::c_uint)
+                              -> virDomainPtr;
     pub fn virDomainCreateXMLWithFiles(conn: virConnectPtr,
                                        xmlDesc: *const self::libc::c_char,
                                        nfiles: self::libc::c_uint,
                                        files: *mut self::libc::c_int,
-                                       flags: self::libc::c_uint) -> virDomainPtr;
+                                       flags: self::libc::c_uint)
+                                       -> virDomainPtr;
     pub fn virDomainLookupByName(conn: virConnectPtr,
-                                 name: *const self::libc::c_char) -> virDomainPtr;
-    pub fn virDomainLookupByID(conn: virConnectPtr, id: self::libc::c_int)
-     -> virDomainPtr;
+                                 name: *const self::libc::c_char)
+                                 -> virDomainPtr;
+    pub fn virDomainLookupByID(conn: virConnectPtr, id: self::libc::c_int) -> virDomainPtr;
     pub fn virDomainLookupByUUID(conn: virConnectPtr,
                                  uuid: *const self::libc::c_uchar)
-     -> virDomainPtr;
+                                 -> virDomainPtr;
     pub fn virDomainLookupByUUIDString(conn: virConnectPtr,
                                        uuid: *const self::libc::c_char)
-     -> virDomainPtr;
+                                       -> virDomainPtr;
     pub fn virDomainShutdown(domain: virDomainPtr) -> self::libc::c_int;
-    pub fn virDomainShutdownFlags(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainReboot(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainReset(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+    pub fn virDomainShutdownFlags(domain: virDomainPtr,
+                                  flags: self::libc::c_uint)
+                                  -> self::libc::c_int;
+    pub fn virDomainReboot(domain: virDomainPtr, flags: self::libc::c_uint) -> self::libc::c_int;
+    pub fn virDomainReset(domain: virDomainPtr, flags: self::libc::c_uint) -> self::libc::c_int;
     pub fn virDomainDestroy(domain: virDomainPtr) -> self::libc::c_int;
-    pub fn virDomainDestroyFlags(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+    pub fn virDomainDestroyFlags(domain: virDomainPtr,
+                                 flags: self::libc::c_uint)
+                                 -> self::libc::c_int;
     pub fn virDomainRef(domain: virDomainPtr) -> self::libc::c_int;
     pub fn virDomainFree(domain: virDomainPtr) -> self::libc::c_int;
     pub fn virDomainSuspend(domain: virDomainPtr) -> self::libc::c_int;
@@ -1807,661 +1939,770 @@ extern "C" {
                                          target: self::libc::c_uint,
                                          duration: self::libc::c_ulonglong,
                                          flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainPMWakeup(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainSave(domain: virDomainPtr, to: *const self::libc::c_char)
-     -> self::libc::c_int;
-    pub fn virDomainSaveFlags(domain: virDomainPtr, to: *const self::libc::c_char,
+                                         -> self::libc::c_int;
+    pub fn virDomainPMWakeup(domain: virDomainPtr, flags: self::libc::c_uint) -> self::libc::c_int;
+    pub fn virDomainSave(domain: virDomainPtr, to: *const self::libc::c_char) -> self::libc::c_int;
+    pub fn virDomainSaveFlags(domain: virDomainPtr,
+                              to: *const self::libc::c_char,
                               dxml: *const self::libc::c_char,
-                              flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainRestore(conn: virConnectPtr, from: *const self::libc::c_char)
-     -> self::libc::c_int;
+                              flags: self::libc::c_uint)
+                              -> self::libc::c_int;
+    pub fn virDomainRestore(conn: virConnectPtr,
+                            from: *const self::libc::c_char)
+                            -> self::libc::c_int;
     pub fn virDomainRestoreFlags(conn: virConnectPtr,
                                  from: *const self::libc::c_char,
                                  dxml: *const self::libc::c_char,
-                                 flags: self::libc::c_uint) -> self::libc::c_int;
+                                 flags: self::libc::c_uint)
+                                 -> self::libc::c_int;
     pub fn virDomainSaveImageGetXMLDesc(conn: virConnectPtr,
                                         file: *const self::libc::c_char,
                                         flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                        -> *mut self::libc::c_char;
     pub fn virDomainSaveImageDefineXML(conn: virConnectPtr,
                                        file: *const self::libc::c_char,
                                        dxml: *const self::libc::c_char,
                                        flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainManagedSave(dom: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                       -> self::libc::c_int;
+    pub fn virDomainManagedSave(dom: virDomainPtr, flags: self::libc::c_uint) -> self::libc::c_int;
     pub fn virDomainHasManagedSaveImage(dom: virDomainPtr,
                                         flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
     pub fn virDomainManagedSaveRemove(dom: virDomainPtr,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainCoreDump(domain: virDomainPtr, to: *const self::libc::c_char,
-                             flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainScreenshot(domain: virDomainPtr, stream: virStreamPtr,
-                               screen: self::libc::c_uint, flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
-    pub fn virDomainGetInfo(domain: virDomainPtr, info: virDomainInfoPtr)
-     -> self::libc::c_int;
-    pub fn virDomainGetState(domain: virDomainPtr, state: *mut self::libc::c_int,
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
+    pub fn virDomainCoreDump(domain: virDomainPtr,
+                             to: *const self::libc::c_char,
+                             flags: self::libc::c_uint)
+                             -> self::libc::c_int;
+    pub fn virDomainScreenshot(domain: virDomainPtr,
+                               stream: virStreamPtr,
+                               screen: self::libc::c_uint,
+                               flags: self::libc::c_uint)
+                               -> *mut self::libc::c_char;
+    pub fn virDomainGetInfo(domain: virDomainPtr, info: virDomainInfoPtr) -> self::libc::c_int;
+    pub fn virDomainGetState(domain: virDomainPtr,
+                             state: *mut self::libc::c_int,
                              reason: *mut self::libc::c_int,
-                             flags: self::libc::c_uint) -> self::libc::c_int;
+                             flags: self::libc::c_uint)
+                             -> self::libc::c_int;
     pub fn virDomainGetCPUStats(domain: virDomainPtr,
                                 params: virTypedParameterPtr,
                                 nparams: self::libc::c_uint,
                                 start_cpu: self::libc::c_int,
-                                ncpus: self::libc::c_uint, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                ncpus: self::libc::c_uint,
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virDomainGetControlInfo(domain: virDomainPtr,
                                    info: virDomainControlInfoPtr,
-                                   flags: self::libc::c_uint) -> self::libc::c_int;
+                                   flags: self::libc::c_uint)
+                                   -> self::libc::c_int;
     pub fn virDomainGetSchedulerType(domain: virDomainPtr,
                                      nparams: *mut self::libc::c_int)
-     -> *mut self::libc::c_char;
+                                     -> *mut self::libc::c_char;
     pub fn virDomainSetBlkioParameters(domain: virDomainPtr,
                                        params: virTypedParameterPtr,
                                        nparams: self::libc::c_int,
                                        flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                       -> self::libc::c_int;
     pub fn virDomainGetBlkioParameters(domain: virDomainPtr,
                                        params: virTypedParameterPtr,
                                        nparams: *mut self::libc::c_int,
                                        flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                       -> self::libc::c_int;
     pub fn virDomainSetMemoryParameters(domain: virDomainPtr,
                                         params: virTypedParameterPtr,
                                         nparams: self::libc::c_int,
                                         flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
     pub fn virDomainGetMemoryParameters(domain: virDomainPtr,
                                         params: virTypedParameterPtr,
                                         nparams: *mut self::libc::c_int,
                                         flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
     pub fn virDomainSetNumaParameters(domain: virDomainPtr,
                                       params: virTypedParameterPtr,
                                       nparams: self::libc::c_int,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virDomainGetNumaParameters(domain: virDomainPtr,
                                       params: virTypedParameterPtr,
                                       nparams: *mut self::libc::c_int,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virDomainGetName(domain: virDomainPtr) -> *const self::libc::c_char;
     pub fn virDomainGetID(domain: virDomainPtr) -> self::libc::c_uint;
-    pub fn virDomainGetUUID(domain: virDomainPtr, uuid: *mut self::libc::c_uchar)
-     -> self::libc::c_int;
+    pub fn virDomainGetUUID(domain: virDomainPtr,
+                            uuid: *mut self::libc::c_uchar)
+                            -> self::libc::c_int;
     pub fn virDomainGetUUIDString(domain: virDomainPtr,
-                                  buf: *mut self::libc::c_char) -> self::libc::c_int;
+                                  buf: *mut self::libc::c_char)
+                                  -> self::libc::c_int;
     pub fn virDomainGetOSType(domain: virDomainPtr) -> *mut self::libc::c_char;
     pub fn virDomainGetMaxMemory(domain: virDomainPtr) -> self::libc::c_ulong;
     pub fn virDomainSetMaxMemory(domain: virDomainPtr,
-                                 memory: self::libc::c_ulong) -> self::libc::c_int;
-    pub fn virDomainSetMemory(domain: virDomainPtr, memory: self::libc::c_ulong)
-     -> self::libc::c_int;
+                                 memory: self::libc::c_ulong)
+                                 -> self::libc::c_int;
+    pub fn virDomainSetMemory(domain: virDomainPtr,
+                              memory: self::libc::c_ulong)
+                              -> self::libc::c_int;
     pub fn virDomainSetMemoryFlags(domain: virDomainPtr,
                                    memory: self::libc::c_ulong,
-                                   flags: self::libc::c_uint) -> self::libc::c_int;
+                                   flags: self::libc::c_uint)
+                                   -> self::libc::c_int;
     pub fn virDomainSetMemoryStatsPeriod(domain: virDomainPtr,
                                          period: self::libc::c_int,
                                          flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                         -> self::libc::c_int;
     pub fn virDomainGetMaxVcpus(domain: virDomainPtr) -> self::libc::c_int;
     pub fn virDomainGetSecurityLabel(domain: virDomainPtr,
                                      seclabel: virSecurityLabelPtr)
-     -> self::libc::c_int;
-    pub fn virDomainGetHostname(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                     -> self::libc::c_int;
+    pub fn virDomainGetHostname(domain: virDomainPtr,
+                                flags: self::libc::c_uint)
+                                -> *mut self::libc::c_char;
     pub fn virDomainGetSecurityLabelList(domain: virDomainPtr,
                                          seclabels: *mut virSecurityLabelPtr)
-     -> self::libc::c_int;
-    pub fn virDomainSetMetadata(domain: virDomainPtr, _type: self::libc::c_int,
+                                         -> self::libc::c_int;
+    pub fn virDomainSetMetadata(domain: virDomainPtr,
+                                _type: self::libc::c_int,
                                 metadata: *const self::libc::c_char,
                                 key: *const self::libc::c_char,
                                 uri: *const self::libc::c_char,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainGetMetadata(domain: virDomainPtr, _type: self::libc::c_int,
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
+    pub fn virDomainGetMetadata(domain: virDomainPtr,
+                                _type: self::libc::c_int,
                                 uri: *const self::libc::c_char,
-                                flags: self::libc::c_uint) -> *mut self::libc::c_char;
-    pub fn virDomainGetXMLDesc(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                flags: self::libc::c_uint)
+                                -> *mut self::libc::c_char;
+    pub fn virDomainGetXMLDesc(domain: virDomainPtr,
+                               flags: self::libc::c_uint)
+                               -> *mut self::libc::c_char;
     pub fn virConnectDomainXMLFromNative(conn: virConnectPtr,
                                          nativeFormat: *const self::libc::c_char,
                                          nativeConfig: *const self::libc::c_char,
                                          flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                         -> *mut self::libc::c_char;
     pub fn virConnectDomainXMLToNative(conn: virConnectPtr,
                                        nativeFormat: *const self::libc::c_char,
                                        domainXml: *const self::libc::c_char,
                                        flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
-    pub fn virDomainBlockStats(dom: virDomainPtr, disk: *const self::libc::c_char,
-                               stats: virDomainBlockStatsPtr, size: size_t)
-     -> self::libc::c_int;
+                                       -> *mut self::libc::c_char;
+    pub fn virDomainBlockStats(dom: virDomainPtr,
+                               disk: *const self::libc::c_char,
+                               stats: virDomainBlockStatsPtr,
+                               size: size_t)
+                               -> self::libc::c_int;
     pub fn virDomainBlockStatsFlags(dom: virDomainPtr,
                                     disk: *const self::libc::c_char,
                                     params: virTypedParameterPtr,
                                     nparams: *mut self::libc::c_int,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virDomainInterfaceStats(dom: virDomainPtr,
                                    path: *const self::libc::c_char,
                                    stats: virDomainInterfaceStatsPtr,
-                                   size: size_t) -> self::libc::c_int;
+                                   size: size_t)
+                                   -> self::libc::c_int;
     pub fn virDomainSetInterfaceParameters(dom: virDomainPtr,
                                            device: *const self::libc::c_char,
                                            params: virTypedParameterPtr,
                                            nparams: self::libc::c_int,
                                            flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                           -> self::libc::c_int;
     pub fn virDomainGetInterfaceParameters(dom: virDomainPtr,
                                            device: *const self::libc::c_char,
                                            params: virTypedParameterPtr,
                                            nparams: *mut self::libc::c_int,
                                            flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainBlockPeek(dom: virDomainPtr, disk: *const self::libc::c_char,
-                              offset: self::libc::c_ulonglong, size: size_t,
+                                           -> self::libc::c_int;
+    pub fn virDomainBlockPeek(dom: virDomainPtr,
+                              disk: *const self::libc::c_char,
+                              offset: self::libc::c_ulonglong,
+                              size: size_t,
                               buffer: *mut self::libc::c_void,
-                              flags: self::libc::c_uint) -> self::libc::c_int;
+                              flags: self::libc::c_uint)
+                              -> self::libc::c_int;
     pub fn virDomainBlockResize(dom: virDomainPtr,
                                 disk: *const self::libc::c_char,
                                 size: self::libc::c_ulonglong,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virDomainGetBlockInfo(dom: virDomainPtr,
                                  disk: *const self::libc::c_char,
                                  info: virDomainBlockInfoPtr,
-                                 flags: self::libc::c_uint) -> self::libc::c_int;
+                                 flags: self::libc::c_uint)
+                                 -> self::libc::c_int;
     pub fn virDomainMemoryStats(dom: virDomainPtr,
                                 stats: virDomainMemoryStatPtr,
                                 nr_stats: self::libc::c_uint,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainMemoryPeek(dom: virDomainPtr, start: self::libc::c_ulonglong,
-                               size: size_t, buffer: *mut self::libc::c_void,
-                               flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainDefineXML(conn: virConnectPtr, xml: *const self::libc::c_char)
-     -> virDomainPtr;
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
+    pub fn virDomainMemoryPeek(dom: virDomainPtr,
+                               start: self::libc::c_ulonglong,
+                               size: size_t,
+                               buffer: *mut self::libc::c_void,
+                               flags: self::libc::c_uint)
+                               -> self::libc::c_int;
+    pub fn virDomainDefineXML(conn: virConnectPtr, xml: *const self::libc::c_char) -> virDomainPtr;
     pub fn virDomainUndefine(domain: virDomainPtr) -> self::libc::c_int;
-    pub fn virDomainUndefineFlags(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virConnectNumOfDefinedDomains(conn: virConnectPtr)
-     -> self::libc::c_int;
+    pub fn virDomainUndefineFlags(domain: virDomainPtr,
+                                  flags: self::libc::c_uint)
+                                  -> self::libc::c_int;
+    pub fn virConnectNumOfDefinedDomains(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListDefinedDomains(conn: virConnectPtr,
                                         names: *mut *mut self::libc::c_char,
                                         maxnames: self::libc::c_int)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
     pub fn virConnectListAllDomains(conn: virConnectPtr,
                                     domains: *mut *mut virDomainPtr,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virDomainCreate(domain: virDomainPtr) -> self::libc::c_int;
     pub fn virDomainCreateWithFlags(domain: virDomainPtr,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virDomainCreateWithFiles(domain: virDomainPtr,
                                     nfiles: self::libc::c_uint,
                                     files: *mut self::libc::c_int,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virDomainGetAutostart(domain: virDomainPtr,
                                  autostart: *mut self::libc::c_int)
-     -> self::libc::c_int;
+                                 -> self::libc::c_int;
     pub fn virDomainSetAutostart(domain: virDomainPtr,
-                                 autostart: self::libc::c_int) -> self::libc::c_int;
-    pub fn virDomainSetVcpus(domain: virDomainPtr, nvcpus: self::libc::c_uint)
-     -> self::libc::c_int;
+                                 autostart: self::libc::c_int)
+                                 -> self::libc::c_int;
+    pub fn virDomainSetVcpus(domain: virDomainPtr,
+                             nvcpus: self::libc::c_uint)
+                             -> self::libc::c_int;
     pub fn virDomainSetVcpusFlags(domain: virDomainPtr,
                                   nvcpus: self::libc::c_uint,
-                                  flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainGetVcpusFlags(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainPinVcpu(domain: virDomainPtr, vcpu: self::libc::c_uint,
+                                  flags: self::libc::c_uint)
+                                  -> self::libc::c_int;
+    pub fn virDomainGetVcpusFlags(domain: virDomainPtr,
+                                  flags: self::libc::c_uint)
+                                  -> self::libc::c_int;
+    pub fn virDomainPinVcpu(domain: virDomainPtr,
+                            vcpu: self::libc::c_uint,
                             cpumap: *mut self::libc::c_uchar,
-                            maplen: self::libc::c_int) -> self::libc::c_int;
-    pub fn virDomainPinVcpuFlags(domain: virDomainPtr, vcpu: self::libc::c_uint,
+                            maplen: self::libc::c_int)
+                            -> self::libc::c_int;
+    pub fn virDomainPinVcpuFlags(domain: virDomainPtr,
+                                 vcpu: self::libc::c_uint,
                                  cpumap: *mut self::libc::c_uchar,
-                                 maplen: self::libc::c_int, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                 maplen: self::libc::c_int,
+                                 flags: self::libc::c_uint)
+                                 -> self::libc::c_int;
     pub fn virDomainGetVcpuPinInfo(domain: virDomainPtr,
                                    ncpumaps: self::libc::c_int,
                                    cpumaps: *mut self::libc::c_uchar,
                                    maplen: self::libc::c_int,
-                                   flags: self::libc::c_uint) -> self::libc::c_int;
+                                   flags: self::libc::c_uint)
+                                   -> self::libc::c_int;
     pub fn virDomainPinEmulator(domain: virDomainPtr,
                                 cpumap: *mut self::libc::c_uchar,
-                                maplen: self::libc::c_int, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                maplen: self::libc::c_int,
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virDomainGetEmulatorPinInfo(domain: virDomainPtr,
                                        cpumaps: *mut self::libc::c_uchar,
                                        maplen: self::libc::c_int,
                                        flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainGetVcpus(domain: virDomainPtr, info: virVcpuInfoPtr,
+                                       -> self::libc::c_int;
+    pub fn virDomainGetVcpus(domain: virDomainPtr,
+                             info: virVcpuInfoPtr,
                              maxinfo: self::libc::c_int,
                              cpumaps: *mut self::libc::c_uchar,
-                             maplen: self::libc::c_int) -> self::libc::c_int;
+                             maplen: self::libc::c_int)
+                             -> self::libc::c_int;
     pub fn virDomainAttachDevice(domain: virDomainPtr,
-                                 xml: *const self::libc::c_char) -> self::libc::c_int;
+                                 xml: *const self::libc::c_char)
+                                 -> self::libc::c_int;
     pub fn virDomainDetachDevice(domain: virDomainPtr,
-                                 xml: *const self::libc::c_char) -> self::libc::c_int;
+                                 xml: *const self::libc::c_char)
+                                 -> self::libc::c_int;
     pub fn virDomainAttachDeviceFlags(domain: virDomainPtr,
                                       xml: *const self::libc::c_char,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virDomainDetachDeviceFlags(domain: virDomainPtr,
                                       xml: *const self::libc::c_char,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virDomainUpdateDeviceFlags(domain: virDomainPtr,
                                       xml: *const self::libc::c_char,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virDomainBlockJobAbort(dom: virDomainPtr,
                                   disk: *const self::libc::c_char,
-                                  flags: self::libc::c_uint) -> self::libc::c_int;
+                                  flags: self::libc::c_uint)
+                                  -> self::libc::c_int;
     pub fn virDomainGetBlockJobInfo(dom: virDomainPtr,
                                     disk: *const self::libc::c_char,
                                     info: virDomainBlockJobInfoPtr,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virDomainBlockJobSetSpeed(dom: virDomainPtr,
                                      disk: *const self::libc::c_char,
                                      bandwidth: self::libc::c_ulong,
-                                     flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainBlockPull(dom: virDomainPtr, disk: *const self::libc::c_char,
+                                     flags: self::libc::c_uint)
+                                     -> self::libc::c_int;
+    pub fn virDomainBlockPull(dom: virDomainPtr,
+                              disk: *const self::libc::c_char,
                               bandwidth: self::libc::c_ulong,
-                              flags: self::libc::c_uint) -> self::libc::c_int;
+                              flags: self::libc::c_uint)
+                              -> self::libc::c_int;
     pub fn virDomainBlockRebase(dom: virDomainPtr,
                                 disk: *const self::libc::c_char,
                                 base: *const self::libc::c_char,
                                 bandwidth: self::libc::c_ulong,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virDomainBlockCommit(dom: virDomainPtr,
                                 disk: *const self::libc::c_char,
                                 base: *const self::libc::c_char,
                                 top: *const self::libc::c_char,
                                 bandwidth: self::libc::c_ulong,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virDomainSetBlockIoTune(dom: virDomainPtr,
                                    disk: *const self::libc::c_char,
                                    params: virTypedParameterPtr,
                                    nparams: self::libc::c_int,
-                                   flags: self::libc::c_uint) -> self::libc::c_int;
+                                   flags: self::libc::c_uint)
+                                   -> self::libc::c_int;
     pub fn virDomainGetBlockIoTune(dom: virDomainPtr,
                                    disk: *const self::libc::c_char,
                                    params: virTypedParameterPtr,
                                    nparams: *mut self::libc::c_int,
-                                   flags: self::libc::c_uint) -> self::libc::c_int;
+                                   flags: self::libc::c_uint)
+                                   -> self::libc::c_int;
     pub fn virDomainGetDiskErrors(dom: virDomainPtr,
                                   errors: virDomainDiskErrorPtr,
                                   maxerrors: self::libc::c_uint,
-                                  flags: self::libc::c_uint) -> self::libc::c_int;
+                                  flags: self::libc::c_uint)
+                                  -> self::libc::c_int;
     pub fn virNodeGetCellsFreeMemory(conn: virConnectPtr,
                                      freeMems: *mut self::libc::c_ulonglong,
                                      startCell: self::libc::c_int,
                                      maxCells: self::libc::c_int)
-     -> self::libc::c_int;
+                                     -> self::libc::c_int;
     pub fn virNetworkGetConnect(network: virNetworkPtr) -> virConnectPtr;
     pub fn virConnectNumOfNetworks(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListNetworks(conn: virConnectPtr,
                                   names: *mut *mut self::libc::c_char,
-                                  maxnames: self::libc::c_int) -> self::libc::c_int;
-    pub fn virConnectNumOfDefinedNetworks(conn: virConnectPtr)
-     -> self::libc::c_int;
+                                  maxnames: self::libc::c_int)
+                                  -> self::libc::c_int;
+    pub fn virConnectNumOfDefinedNetworks(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListDefinedNetworks(conn: virConnectPtr,
                                          names: *mut *mut self::libc::c_char,
                                          maxnames: self::libc::c_int)
-     -> self::libc::c_int;
+                                         -> self::libc::c_int;
     pub fn virConnectListAllNetworks(conn: virConnectPtr,
                                      nets: *mut *mut virNetworkPtr,
-                                     flags: self::libc::c_uint) -> self::libc::c_int;
+                                     flags: self::libc::c_uint)
+                                     -> self::libc::c_int;
     pub fn virNetworkLookupByName(conn: virConnectPtr,
                                   name: *const self::libc::c_char)
-     -> virNetworkPtr;
+                                  -> virNetworkPtr;
     pub fn virNetworkLookupByUUID(conn: virConnectPtr,
                                   uuid: *const self::libc::c_uchar)
-     -> virNetworkPtr;
+                                  -> virNetworkPtr;
     pub fn virNetworkLookupByUUIDString(conn: virConnectPtr,
                                         uuid: *const self::libc::c_char)
-     -> virNetworkPtr;
+                                        -> virNetworkPtr;
     pub fn virNetworkCreateXML(conn: virConnectPtr,
                                xmlDesc: *const self::libc::c_char)
-     -> virNetworkPtr;
+                               -> virNetworkPtr;
     pub fn virNetworkDefineXML(conn: virConnectPtr,
                                xmlDesc: *const self::libc::c_char)
-     -> virNetworkPtr;
+                               -> virNetworkPtr;
     pub fn virNetworkUndefine(network: virNetworkPtr) -> self::libc::c_int;
-    pub fn virNetworkUpdate(network: virNetworkPtr, command: self::libc::c_uint,
+    pub fn virNetworkUpdate(network: virNetworkPtr,
+                            command: self::libc::c_uint,
                             section: self::libc::c_uint,
                             parentIndex: self::libc::c_int,
-                            xml: *const self::libc::c_char, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                            xml: *const self::libc::c_char,
+                            flags: self::libc::c_uint)
+                            -> self::libc::c_int;
     pub fn virNetworkCreate(network: virNetworkPtr) -> self::libc::c_int;
     pub fn virNetworkDestroy(network: virNetworkPtr) -> self::libc::c_int;
     pub fn virNetworkRef(network: virNetworkPtr) -> self::libc::c_int;
     pub fn virNetworkFree(network: virNetworkPtr) -> self::libc::c_int;
     pub fn virNetworkGetName(network: virNetworkPtr) -> *const self::libc::c_char;
     pub fn virNetworkGetUUID(network: virNetworkPtr,
-                             uuid: *mut self::libc::c_uchar) -> self::libc::c_int;
+                             uuid: *mut self::libc::c_uchar)
+                             -> self::libc::c_int;
     pub fn virNetworkGetUUIDString(network: virNetworkPtr,
-                                   buf: *mut self::libc::c_char) -> self::libc::c_int;
-    pub fn virNetworkGetXMLDesc(network: virNetworkPtr, flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
-    pub fn virNetworkGetBridgeName(network: virNetworkPtr)
-     -> *mut self::libc::c_char;
+                                   buf: *mut self::libc::c_char)
+                                   -> self::libc::c_int;
+    pub fn virNetworkGetXMLDesc(network: virNetworkPtr,
+                                flags: self::libc::c_uint)
+                                -> *mut self::libc::c_char;
+    pub fn virNetworkGetBridgeName(network: virNetworkPtr) -> *mut self::libc::c_char;
     pub fn virNetworkGetAutostart(network: virNetworkPtr,
                                   autostart: *mut self::libc::c_int)
-     -> self::libc::c_int;
+                                  -> self::libc::c_int;
     pub fn virNetworkSetAutostart(network: virNetworkPtr,
-                                  autostart: self::libc::c_int) -> self::libc::c_int;
+                                  autostart: self::libc::c_int)
+                                  -> self::libc::c_int;
     pub fn virInterfaceGetConnect(iface: virInterfacePtr) -> virConnectPtr;
     pub fn virConnectNumOfInterfaces(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListInterfaces(conn: virConnectPtr,
                                     names: *mut *mut self::libc::c_char,
-                                    maxnames: self::libc::c_int) -> self::libc::c_int;
-    pub fn virConnectNumOfDefinedInterfaces(conn: virConnectPtr)
-     -> self::libc::c_int;
+                                    maxnames: self::libc::c_int)
+                                    -> self::libc::c_int;
+    pub fn virConnectNumOfDefinedInterfaces(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListDefinedInterfaces(conn: virConnectPtr,
                                            names: *mut *mut self::libc::c_char,
                                            maxnames: self::libc::c_int)
-     -> self::libc::c_int;
+                                           -> self::libc::c_int;
     pub fn virConnectListAllInterfaces(conn: virConnectPtr,
                                        ifaces: *mut *mut virInterfacePtr,
                                        flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                       -> self::libc::c_int;
     pub fn virInterfaceLookupByName(conn: virConnectPtr,
                                     name: *const self::libc::c_char)
-     -> virInterfacePtr;
+                                    -> virInterfacePtr;
     pub fn virInterfaceLookupByMACString(conn: virConnectPtr,
                                          mac: *const self::libc::c_char)
-     -> virInterfacePtr;
-    pub fn virInterfaceGetName(iface: virInterfacePtr)
-     -> *const self::libc::c_char;
-    pub fn virInterfaceGetMACString(iface: virInterfacePtr)
-     -> *const self::libc::c_char;
+                                         -> virInterfacePtr;
+    pub fn virInterfaceGetName(iface: virInterfacePtr) -> *const self::libc::c_char;
+    pub fn virInterfaceGetMACString(iface: virInterfacePtr) -> *const self::libc::c_char;
     pub fn virInterfaceGetXMLDesc(iface: virInterfacePtr,
                                   flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                  -> *mut self::libc::c_char;
     pub fn virInterfaceDefineXML(conn: virConnectPtr,
                                  xmlDesc: *const self::libc::c_char,
-                                 flags: self::libc::c_uint) -> virInterfacePtr;
+                                 flags: self::libc::c_uint)
+                                 -> virInterfacePtr;
     pub fn virInterfaceUndefine(iface: virInterfacePtr) -> self::libc::c_int;
-    pub fn virInterfaceCreate(iface: virInterfacePtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virInterfaceDestroy(iface: virInterfacePtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+    pub fn virInterfaceCreate(iface: virInterfacePtr,
+                              flags: self::libc::c_uint)
+                              -> self::libc::c_int;
+    pub fn virInterfaceDestroy(iface: virInterfacePtr,
+                               flags: self::libc::c_uint)
+                               -> self::libc::c_int;
     pub fn virInterfaceRef(iface: virInterfacePtr) -> self::libc::c_int;
     pub fn virInterfaceFree(iface: virInterfacePtr) -> self::libc::c_int;
-    pub fn virInterfaceChangeBegin(conn: virConnectPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+    pub fn virInterfaceChangeBegin(conn: virConnectPtr,
+                                   flags: self::libc::c_uint)
+                                   -> self::libc::c_int;
     pub fn virInterfaceChangeCommit(conn: virConnectPtr,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virInterfaceChangeRollback(conn: virConnectPtr,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virStoragePoolGetConnect(pool: virStoragePoolPtr) -> virConnectPtr;
     pub fn virConnectNumOfStoragePools(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListStoragePools(conn: virConnectPtr,
                                       names: *mut *mut self::libc::c_char,
                                       maxnames: self::libc::c_int)
-     -> self::libc::c_int;
-    pub fn virConnectNumOfDefinedStoragePools(conn: virConnectPtr)
-     -> self::libc::c_int;
+                                      -> self::libc::c_int;
+    pub fn virConnectNumOfDefinedStoragePools(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListDefinedStoragePools(conn: virConnectPtr,
                                              names: *mut *mut self::libc::c_char,
                                              maxnames: self::libc::c_int)
-     -> self::libc::c_int;
+                                             -> self::libc::c_int;
     pub fn virConnectListAllStoragePools(conn: virConnectPtr,
                                          pools: *mut *mut virStoragePoolPtr,
                                          flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                         -> self::libc::c_int;
     pub fn virConnectFindStoragePoolSources(conn: virConnectPtr,
                                             _type: *const self::libc::c_char,
                                             srcSpec: *const self::libc::c_char,
                                             flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                            -> *mut self::libc::c_char;
     pub fn virStoragePoolLookupByName(conn: virConnectPtr,
                                       name: *const self::libc::c_char)
-     -> virStoragePoolPtr;
+                                      -> virStoragePoolPtr;
     pub fn virStoragePoolLookupByUUID(conn: virConnectPtr,
                                       uuid: *const self::libc::c_uchar)
-     -> virStoragePoolPtr;
+                                      -> virStoragePoolPtr;
     pub fn virStoragePoolLookupByUUIDString(conn: virConnectPtr,
                                             uuid: *const self::libc::c_char)
-     -> virStoragePoolPtr;
-    pub fn virStoragePoolLookupByVolume(vol: virStorageVolPtr)
-     -> virStoragePoolPtr;
+                                            -> virStoragePoolPtr;
+    pub fn virStoragePoolLookupByVolume(vol: virStorageVolPtr) -> virStoragePoolPtr;
     pub fn virStoragePoolCreateXML(conn: virConnectPtr,
                                    xmlDesc: *const self::libc::c_char,
                                    flags: self::libc::c_uint)
-     -> virStoragePoolPtr;
+                                   -> virStoragePoolPtr;
     pub fn virStoragePoolDefineXML(conn: virConnectPtr,
                                    xmlDesc: *const self::libc::c_char,
                                    flags: self::libc::c_uint)
-     -> virStoragePoolPtr;
-    pub fn virStoragePoolBuild(pool: virStoragePoolPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                   -> virStoragePoolPtr;
+    pub fn virStoragePoolBuild(pool: virStoragePoolPtr,
+                               flags: self::libc::c_uint)
+                               -> self::libc::c_int;
     pub fn virStoragePoolUndefine(pool: virStoragePoolPtr) -> self::libc::c_int;
     pub fn virStoragePoolCreate(pool: virStoragePoolPtr,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virStoragePoolDestroy(pool: virStoragePoolPtr) -> self::libc::c_int;
     pub fn virStoragePoolDelete(pool: virStoragePoolPtr,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virStoragePoolRef(pool: virStoragePoolPtr) -> self::libc::c_int;
     pub fn virStoragePoolFree(pool: virStoragePoolPtr) -> self::libc::c_int;
     pub fn virStoragePoolRefresh(pool: virStoragePoolPtr,
-                                 flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virStoragePoolGetName(pool: virStoragePoolPtr)
-     -> *const self::libc::c_char;
+                                 flags: self::libc::c_uint)
+                                 -> self::libc::c_int;
+    pub fn virStoragePoolGetName(pool: virStoragePoolPtr) -> *const self::libc::c_char;
     pub fn virStoragePoolGetUUID(pool: virStoragePoolPtr,
-                                 uuid: *mut self::libc::c_uchar) -> self::libc::c_int;
+                                 uuid: *mut self::libc::c_uchar)
+                                 -> self::libc::c_int;
     pub fn virStoragePoolGetUUIDString(pool: virStoragePoolPtr,
                                        buf: *mut self::libc::c_char)
-     -> self::libc::c_int;
+                                       -> self::libc::c_int;
     pub fn virStoragePoolGetInfo(vol: virStoragePoolPtr,
                                  info: virStoragePoolInfoPtr)
-     -> self::libc::c_int;
+                                 -> self::libc::c_int;
     pub fn virStoragePoolGetXMLDesc(pool: virStoragePoolPtr,
                                     flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                    -> *mut self::libc::c_char;
     pub fn virStoragePoolGetAutostart(pool: virStoragePoolPtr,
                                       autostart: *mut self::libc::c_int)
-     -> self::libc::c_int;
+                                      -> self::libc::c_int;
     pub fn virStoragePoolSetAutostart(pool: virStoragePoolPtr,
                                       autostart: self::libc::c_int)
-     -> self::libc::c_int;
-    pub fn virStoragePoolNumOfVolumes(pool: virStoragePoolPtr)
-     -> self::libc::c_int;
+                                      -> self::libc::c_int;
+    pub fn virStoragePoolNumOfVolumes(pool: virStoragePoolPtr) -> self::libc::c_int;
     pub fn virStoragePoolListVolumes(pool: virStoragePoolPtr,
                                      names: *mut *mut self::libc::c_char,
                                      maxnames: self::libc::c_int)
-     -> self::libc::c_int;
+                                     -> self::libc::c_int;
     pub fn virStoragePoolListAllVolumes(pool: virStoragePoolPtr,
                                         vols: *mut *mut virStorageVolPtr,
                                         flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
     pub fn virStorageVolGetConnect(vol: virStorageVolPtr) -> virConnectPtr;
     pub fn virStorageVolLookupByName(pool: virStoragePoolPtr,
                                      name: *const self::libc::c_char)
-     -> virStorageVolPtr;
+                                     -> virStorageVolPtr;
     pub fn virStorageVolLookupByKey(conn: virConnectPtr,
                                     key: *const self::libc::c_char)
-     -> virStorageVolPtr;
+                                    -> virStorageVolPtr;
     pub fn virStorageVolLookupByPath(conn: virConnectPtr,
                                      path: *const self::libc::c_char)
-     -> virStorageVolPtr;
-    pub fn virStorageVolGetName(vol: virStorageVolPtr)
-     -> *const self::libc::c_char;
-    pub fn virStorageVolGetKey(vol: virStorageVolPtr)
-     -> *const self::libc::c_char;
+                                     -> virStorageVolPtr;
+    pub fn virStorageVolGetName(vol: virStorageVolPtr) -> *const self::libc::c_char;
+    pub fn virStorageVolGetKey(vol: virStorageVolPtr) -> *const self::libc::c_char;
     pub fn virStorageVolCreateXML(pool: virStoragePoolPtr,
                                   xmldesc: *const self::libc::c_char,
-                                  flags: self::libc::c_uint) -> virStorageVolPtr;
+                                  flags: self::libc::c_uint)
+                                  -> virStorageVolPtr;
     pub fn virStorageVolCreateXMLFrom(pool: virStoragePoolPtr,
                                       xmldesc: *const self::libc::c_char,
                                       clonevol: virStorageVolPtr,
                                       flags: self::libc::c_uint)
-     -> virStorageVolPtr;
-    pub fn virStorageVolDownload(vol: virStorageVolPtr, stream: virStreamPtr,
+                                      -> virStorageVolPtr;
+    pub fn virStorageVolDownload(vol: virStorageVolPtr,
+                                 stream: virStreamPtr,
                                  offset: self::libc::c_ulonglong,
                                  length: self::libc::c_ulonglong,
-                                 flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virStorageVolUpload(vol: virStorageVolPtr, stream: virStreamPtr,
+                                 flags: self::libc::c_uint)
+                                 -> self::libc::c_int;
+    pub fn virStorageVolUpload(vol: virStorageVolPtr,
+                               stream: virStreamPtr,
                                offset: self::libc::c_ulonglong,
                                length: self::libc::c_ulonglong,
-                               flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virStorageVolDelete(vol: virStorageVolPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virStorageVolWipe(vol: virStorageVolPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                               flags: self::libc::c_uint)
+                               -> self::libc::c_int;
+    pub fn virStorageVolDelete(vol: virStorageVolPtr,
+                               flags: self::libc::c_uint)
+                               -> self::libc::c_int;
+    pub fn virStorageVolWipe(vol: virStorageVolPtr,
+                             flags: self::libc::c_uint)
+                             -> self::libc::c_int;
     pub fn virStorageVolWipePattern(vol: virStorageVolPtr,
                                     algorithm: self::libc::c_uint,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virStorageVolRef(vol: virStorageVolPtr) -> self::libc::c_int;
     pub fn virStorageVolFree(vol: virStorageVolPtr) -> self::libc::c_int;
     pub fn virStorageVolGetInfo(vol: virStorageVolPtr,
-                                info: virStorageVolInfoPtr) -> self::libc::c_int;
+                                info: virStorageVolInfoPtr)
+                                -> self::libc::c_int;
     pub fn virStorageVolGetXMLDesc(pool: virStorageVolPtr,
                                    flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                   -> *mut self::libc::c_char;
     pub fn virStorageVolGetPath(vol: virStorageVolPtr) -> *mut self::libc::c_char;
     pub fn virStorageVolResize(vol: virStorageVolPtr,
                                capacity: self::libc::c_ulonglong,
-                               flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainSendKey(domain: virDomainPtr, codeset: self::libc::c_uint,
+                               flags: self::libc::c_uint)
+                               -> self::libc::c_int;
+    pub fn virDomainSendKey(domain: virDomainPtr,
+                            codeset: self::libc::c_uint,
                             holdtime: self::libc::c_uint,
                             keycodes: *mut self::libc::c_uint,
-                            nkeycodes: self::libc::c_int, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                            nkeycodes: self::libc::c_int,
+                            flags: self::libc::c_uint)
+                            -> self::libc::c_int;
     pub fn virDomainSendProcessSignal(domain: virDomainPtr,
                                       pid_value: self::libc::c_longlong,
                                       signum: self::libc::c_uint,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virDomainCreateLinux(conn: virConnectPtr,
                                 xmlDesc: *const self::libc::c_char,
-                                flags: self::libc::c_uint) -> virDomainPtr;
+                                flags: self::libc::c_uint)
+                                -> virDomainPtr;
     pub fn virNodeNumOfDevices(conn: virConnectPtr,
                                cap: *const self::libc::c_char,
-                               flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virNodeListDevices(conn: virConnectPtr, cap: *const self::libc::c_char,
+                               flags: self::libc::c_uint)
+                               -> self::libc::c_int;
+    pub fn virNodeListDevices(conn: virConnectPtr,
+                              cap: *const self::libc::c_char,
                               names: *mut *mut self::libc::c_char,
-                              maxnames: self::libc::c_int, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                              maxnames: self::libc::c_int,
+                              flags: self::libc::c_uint)
+                              -> self::libc::c_int;
     pub fn virConnectListAllNodeDevices(conn: virConnectPtr,
                                         devices: *mut *mut virNodeDevicePtr,
                                         flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
     pub fn virNodeDeviceLookupByName(conn: virConnectPtr,
                                      name: *const self::libc::c_char)
-     -> virNodeDevicePtr;
+                                     -> virNodeDevicePtr;
     pub fn virNodeDeviceLookupSCSIHostByWWN(conn: virConnectPtr,
                                             wwnn: *const self::libc::c_char,
                                             wwpn: *const self::libc::c_char,
                                             flags: self::libc::c_uint)
-     -> virNodeDevicePtr;
-    pub fn virNodeDeviceGetName(dev: virNodeDevicePtr)
-     -> *const self::libc::c_char;
-    pub fn virNodeDeviceGetParent(dev: virNodeDevicePtr)
-     -> *const self::libc::c_char;
+                                            -> virNodeDevicePtr;
+    pub fn virNodeDeviceGetName(dev: virNodeDevicePtr) -> *const self::libc::c_char;
+    pub fn virNodeDeviceGetParent(dev: virNodeDevicePtr) -> *const self::libc::c_char;
     pub fn virNodeDeviceNumOfCaps(dev: virNodeDevicePtr) -> self::libc::c_int;
     pub fn virNodeDeviceListCaps(dev: virNodeDevicePtr,
                                  names: *mut *mut self::libc::c_char,
-                                 maxnames: self::libc::c_int) -> self::libc::c_int;
+                                 maxnames: self::libc::c_int)
+                                 -> self::libc::c_int;
     pub fn virNodeDeviceGetXMLDesc(dev: virNodeDevicePtr,
                                    flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                   -> *mut self::libc::c_char;
     pub fn virNodeDeviceRef(dev: virNodeDevicePtr) -> self::libc::c_int;
     pub fn virNodeDeviceFree(dev: virNodeDevicePtr) -> self::libc::c_int;
     pub fn virNodeDeviceDettach(dev: virNodeDevicePtr) -> self::libc::c_int;
     pub fn virNodeDeviceDetachFlags(dev: virNodeDevicePtr,
                                     driverName: *const self::libc::c_char,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virNodeDeviceReAttach(dev: virNodeDevicePtr) -> self::libc::c_int;
     pub fn virNodeDeviceReset(dev: virNodeDevicePtr) -> self::libc::c_int;
     pub fn virNodeDeviceCreateXML(conn: virConnectPtr,
                                   xmlDesc: *const self::libc::c_char,
-                                  flags: self::libc::c_uint) -> virNodeDevicePtr;
+                                  flags: self::libc::c_uint)
+                                  -> virNodeDevicePtr;
     pub fn virNodeDeviceDestroy(dev: virNodeDevicePtr) -> self::libc::c_int;
     pub fn virConnectDomainEventRegister(conn: virConnectPtr,
                                          cb: virConnectDomainEventCallback,
                                          opaque: *mut self::libc::c_void,
                                          freecb: virFreeCallback)
-     -> self::libc::c_int;
+                                         -> self::libc::c_int;
     pub fn virConnectDomainEventDeregister(conn: virConnectPtr,
                                            cb: virConnectDomainEventCallback)
-     -> self::libc::c_int;
+                                           -> self::libc::c_int;
     pub fn virEventRegisterImpl(addHandle: virEventAddHandleFunc,
                                 updateHandle: virEventUpdateHandleFunc,
                                 removeHandle: virEventRemoveHandleFunc,
                                 addTimeout: virEventAddTimeoutFunc,
                                 updateTimeout: virEventUpdateTimeoutFunc,
                                 removeTimeout: virEventRemoveTimeoutFunc)
-     -> ();
+                                -> ();
     pub fn virEventRegisterDefaultImpl() -> self::libc::c_int;
     pub fn virEventRunDefaultImpl() -> self::libc::c_int;
-    pub fn virEventAddHandle(fd: self::libc::c_int, events: self::libc::c_int,
+    pub fn virEventAddHandle(fd: self::libc::c_int,
+                             events: self::libc::c_int,
                              cb: virEventHandleCallback,
-                             opaque: *mut self::libc::c_void, ff: virFreeCallback)
-     -> self::libc::c_int;
-    pub fn virEventUpdateHandle(watch: self::libc::c_int, events: self::libc::c_int)
-     -> ();
+                             opaque: *mut self::libc::c_void,
+                             ff: virFreeCallback)
+                             -> self::libc::c_int;
+    pub fn virEventUpdateHandle(watch: self::libc::c_int, events: self::libc::c_int) -> ();
     pub fn virEventRemoveHandle(watch: self::libc::c_int) -> self::libc::c_int;
     pub fn virEventAddTimeout(frequency: self::libc::c_int,
                               cb: virEventTimeoutCallback,
                               opaque: *mut self::libc::c_void,
-                              ff: virFreeCallback) -> self::libc::c_int;
-    pub fn virEventUpdateTimeout(timer: self::libc::c_int,
-                                 frequency: self::libc::c_int) -> ();
+                              ff: virFreeCallback)
+                              -> self::libc::c_int;
+    pub fn virEventUpdateTimeout(timer: self::libc::c_int, frequency: self::libc::c_int) -> ();
     pub fn virEventRemoveTimeout(timer: self::libc::c_int) -> self::libc::c_int;
     pub fn virSecretGetConnect(secret: virSecretPtr) -> virConnectPtr;
     pub fn virConnectNumOfSecrets(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListSecrets(conn: virConnectPtr,
                                  uuids: *mut *mut self::libc::c_char,
-                                 maxuuids: self::libc::c_int) -> self::libc::c_int;
+                                 maxuuids: self::libc::c_int)
+                                 -> self::libc::c_int;
     pub fn virConnectListAllSecrets(conn: virConnectPtr,
                                     secrets: *mut *mut virSecretPtr,
-                                    flags: self::libc::c_uint) -> self::libc::c_int;
+                                    flags: self::libc::c_uint)
+                                    -> self::libc::c_int;
     pub fn virSecretLookupByUUID(conn: virConnectPtr,
                                  uuid: *const self::libc::c_uchar)
-     -> virSecretPtr;
+                                 -> virSecretPtr;
     pub fn virSecretLookupByUUIDString(conn: virConnectPtr,
                                        uuid: *const self::libc::c_char)
-     -> virSecretPtr;
+                                       -> virSecretPtr;
     pub fn virSecretLookupByUsage(conn: virConnectPtr,
                                   usageType: self::libc::c_int,
                                   usageID: *const self::libc::c_char)
-     -> virSecretPtr;
-    pub fn virSecretDefineXML(conn: virConnectPtr, xml: *const self::libc::c_char,
-                              flags: self::libc::c_uint) -> virSecretPtr;
-    pub fn virSecretGetUUID(secret: virSecretPtr, buf: *mut self::libc::c_uchar)
-     -> self::libc::c_int;
+                                  -> virSecretPtr;
+    pub fn virSecretDefineXML(conn: virConnectPtr,
+                              xml: *const self::libc::c_char,
+                              flags: self::libc::c_uint)
+                              -> virSecretPtr;
+    pub fn virSecretGetUUID(secret: virSecretPtr,
+                            buf: *mut self::libc::c_uchar)
+                            -> self::libc::c_int;
     pub fn virSecretGetUUIDString(secret: virSecretPtr,
-                                  buf: *mut self::libc::c_char) -> self::libc::c_int;
+                                  buf: *mut self::libc::c_char)
+                                  -> self::libc::c_int;
     pub fn virSecretGetUsageType(secret: virSecretPtr) -> self::libc::c_int;
     pub fn virSecretGetUsageID(secret: virSecretPtr) -> *const self::libc::c_char;
-    pub fn virSecretGetXMLDesc(secret: virSecretPtr, flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+    pub fn virSecretGetXMLDesc(secret: virSecretPtr,
+                               flags: self::libc::c_uint)
+                               -> *mut self::libc::c_char;
     pub fn virSecretSetValue(secret: virSecretPtr,
                              value: *const self::libc::c_uchar,
-                             value_size: size_t, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virSecretGetValue(secret: virSecretPtr, value_size: *mut size_t,
-                             flags: self::libc::c_uint) -> *mut self::libc::c_uchar;
+                             value_size: size_t,
+                             flags: self::libc::c_uint)
+                             -> self::libc::c_int;
+    pub fn virSecretGetValue(secret: virSecretPtr,
+                             value_size: *mut size_t,
+                             flags: self::libc::c_uint)
+                             -> *mut self::libc::c_uchar;
     pub fn virSecretUndefine(secret: virSecretPtr) -> self::libc::c_int;
     pub fn virSecretRef(secret: virSecretPtr) -> self::libc::c_int;
     pub fn virSecretFree(secret: virSecretPtr) -> self::libc::c_int;
-    pub fn virStreamNew(conn: virConnectPtr, flags: self::libc::c_uint)
-     -> virStreamPtr;
+    pub fn virStreamNew(conn: virConnectPtr, flags: self::libc::c_uint) -> virStreamPtr;
     pub fn virStreamRef(st: virStreamPtr) -> self::libc::c_int;
-    pub fn virStreamSend(st: virStreamPtr, data: *const self::libc::c_char,
-                         nbytes: size_t) -> self::libc::c_int;
-    pub fn virStreamRecv(st: virStreamPtr, data: *mut self::libc::c_char,
-                         nbytes: size_t) -> self::libc::c_int;
-    pub fn virStreamSendAll(st: virStreamPtr, handler: virStreamSourceFunc,
-                            opaque: *mut self::libc::c_void) -> self::libc::c_int;
-    pub fn virStreamRecvAll(st: virStreamPtr, handler: virStreamSinkFunc,
-                            opaque: *mut self::libc::c_void) -> self::libc::c_int;
+    pub fn virStreamSend(st: virStreamPtr,
+                         data: *const self::libc::c_char,
+                         nbytes: size_t)
+                         -> self::libc::c_int;
+    pub fn virStreamRecv(st: virStreamPtr,
+                         data: *mut self::libc::c_char,
+                         nbytes: size_t)
+                         -> self::libc::c_int;
+    pub fn virStreamSendAll(st: virStreamPtr,
+                            handler: virStreamSourceFunc,
+                            opaque: *mut self::libc::c_void)
+                            -> self::libc::c_int;
+    pub fn virStreamRecvAll(st: virStreamPtr,
+                            handler: virStreamSinkFunc,
+                            opaque: *mut self::libc::c_void)
+                            -> self::libc::c_int;
     pub fn virStreamEventAddCallback(stream: virStreamPtr,
                                      events: self::libc::c_int,
                                      cb: virStreamEventCallback,
                                      opaque: *mut self::libc::c_void,
-                                     ff: virFreeCallback) -> self::libc::c_int;
+                                     ff: virFreeCallback)
+                                     -> self::libc::c_int;
     pub fn virStreamEventUpdateCallback(stream: virStreamPtr,
                                         events: self::libc::c_int)
-     -> self::libc::c_int;
-    pub fn virStreamEventRemoveCallback(stream: virStreamPtr)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
+    pub fn virStreamEventRemoveCallback(stream: virStreamPtr) -> self::libc::c_int;
     pub fn virStreamFinish(st: virStreamPtr) -> self::libc::c_int;
     pub fn virStreamAbort(st: virStreamPtr) -> self::libc::c_int;
     pub fn virStreamFree(st: virStreamPtr) -> self::libc::c_int;
@@ -2471,186 +2712,193 @@ extern "C" {
     pub fn virNetworkIsActive(net: virNetworkPtr) -> self::libc::c_int;
     pub fn virNetworkIsPersistent(net: virNetworkPtr) -> self::libc::c_int;
     pub fn virStoragePoolIsActive(pool: virStoragePoolPtr) -> self::libc::c_int;
-    pub fn virStoragePoolIsPersistent(pool: virStoragePoolPtr)
-     -> self::libc::c_int;
+    pub fn virStoragePoolIsPersistent(pool: virStoragePoolPtr) -> self::libc::c_int;
     pub fn virInterfaceIsActive(iface: virInterfacePtr) -> self::libc::c_int;
     pub fn virConnectIsEncrypted(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectIsSecure(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectIsAlive(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectCompareCPU(conn: virConnectPtr,
                                 xmlDesc: *const self::libc::c_char,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virConnectGetCPUModelNames(conn: virConnectPtr,
                                       arch: *const self::libc::c_char,
                                       models: *mut *mut *mut self::libc::c_char,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virConnectBaselineCPU(conn: virConnectPtr,
                                  xmlCPUs: *mut *const self::libc::c_char,
-                                 ncpus: self::libc::c_uint, flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
-    pub fn virDomainGetJobInfo(dom: virDomainPtr, info: virDomainJobInfoPtr)
-     -> self::libc::c_int;
+                                 ncpus: self::libc::c_uint,
+                                 flags: self::libc::c_uint)
+                                 -> *mut self::libc::c_char;
+    pub fn virDomainGetJobInfo(dom: virDomainPtr, info: virDomainJobInfoPtr) -> self::libc::c_int;
     pub fn virDomainGetJobStats(domain: virDomainPtr,
                                 _type: *mut self::libc::c_int,
                                 params: *mut virTypedParameterPtr,
                                 nparams: *mut self::libc::c_int,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virDomainAbortJob(dom: virDomainPtr) -> self::libc::c_int;
-    pub fn virDomainSnapshotGetName(snapshot: virDomainSnapshotPtr)
-     -> *const self::libc::c_char;
-    pub fn virDomainSnapshotGetDomain(snapshot: virDomainSnapshotPtr)
-     -> virDomainPtr;
-    pub fn virDomainSnapshotGetConnect(snapshot: virDomainSnapshotPtr)
-     -> virConnectPtr;
+    pub fn virDomainSnapshotGetName(snapshot: virDomainSnapshotPtr) -> *const self::libc::c_char;
+    pub fn virDomainSnapshotGetDomain(snapshot: virDomainSnapshotPtr) -> virDomainPtr;
+    pub fn virDomainSnapshotGetConnect(snapshot: virDomainSnapshotPtr) -> virConnectPtr;
     pub fn virDomainSnapshotCreateXML(domain: virDomainPtr,
                                       xmlDesc: *const self::libc::c_char,
                                       flags: self::libc::c_uint)
-     -> virDomainSnapshotPtr;
+                                      -> virDomainSnapshotPtr;
     pub fn virDomainSnapshotGetXMLDesc(snapshot: virDomainSnapshotPtr,
                                        flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
-    pub fn virDomainSnapshotNum(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                       -> *mut self::libc::c_char;
+    pub fn virDomainSnapshotNum(domain: virDomainPtr,
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virDomainSnapshotListNames(domain: virDomainPtr,
                                       names: *mut *mut self::libc::c_char,
                                       nameslen: self::libc::c_int,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virDomainListAllSnapshots(domain: virDomainPtr,
                                      snaps: *mut *mut virDomainSnapshotPtr,
-                                     flags: self::libc::c_uint) -> self::libc::c_int;
+                                     flags: self::libc::c_uint)
+                                     -> self::libc::c_int;
     pub fn virDomainSnapshotNumChildren(snapshot: virDomainSnapshotPtr,
                                         flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
     pub fn virDomainSnapshotListChildrenNames(snapshot: virDomainSnapshotPtr,
                                               names: *mut *mut self::libc::c_char,
                                               nameslen: self::libc::c_int,
                                               flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                              -> self::libc::c_int;
     pub fn virDomainSnapshotListAllChildren(snapshot: virDomainSnapshotPtr,
-                                            snaps:
-                                                *mut *mut virDomainSnapshotPtr,
+                                            snaps: *mut *mut virDomainSnapshotPtr,
                                             flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                            -> self::libc::c_int;
     pub fn virDomainSnapshotLookupByName(domain: virDomainPtr,
                                          name: *const self::libc::c_char,
                                          flags: self::libc::c_uint)
-     -> virDomainSnapshotPtr;
+                                         -> virDomainSnapshotPtr;
     pub fn virDomainHasCurrentSnapshot(domain: virDomainPtr,
                                        flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                       -> self::libc::c_int;
     pub fn virDomainSnapshotCurrent(domain: virDomainPtr,
                                     flags: self::libc::c_uint)
-     -> virDomainSnapshotPtr;
+                                    -> virDomainSnapshotPtr;
     pub fn virDomainSnapshotGetParent(snapshot: virDomainSnapshotPtr,
                                       flags: self::libc::c_uint)
-     -> virDomainSnapshotPtr;
+                                      -> virDomainSnapshotPtr;
     pub fn virDomainSnapshotIsCurrent(snapshot: virDomainSnapshotPtr,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virDomainSnapshotHasMetadata(snapshot: virDomainSnapshotPtr,
                                         flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                        -> self::libc::c_int;
     pub fn virDomainRevertToSnapshot(snapshot: virDomainSnapshotPtr,
-                                     flags: self::libc::c_uint) -> self::libc::c_int;
+                                     flags: self::libc::c_uint)
+                                     -> self::libc::c_int;
     pub fn virDomainSnapshotDelete(snapshot: virDomainSnapshotPtr,
-                                   flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainSnapshotRef(snapshot: virDomainSnapshotPtr)
-     -> self::libc::c_int;
-    pub fn virDomainSnapshotFree(snapshot: virDomainSnapshotPtr)
-     -> self::libc::c_int;
+                                   flags: self::libc::c_uint)
+                                   -> self::libc::c_int;
+    pub fn virDomainSnapshotRef(snapshot: virDomainSnapshotPtr) -> self::libc::c_int;
+    pub fn virDomainSnapshotFree(snapshot: virDomainSnapshotPtr) -> self::libc::c_int;
     pub fn virConnectDomainEventRegisterAny(conn: virConnectPtr,
                                             dom: virDomainPtr,
                                             eventID: self::libc::c_int,
-                                            cb:
-                                                virConnectDomainEventGenericCallback,
+                                            cb: virConnectDomainEventGenericCallback,
                                             opaque: *mut self::libc::c_void,
                                             freecb: virFreeCallback)
-     -> self::libc::c_int;
+                                            -> self::libc::c_int;
     pub fn virConnectDomainEventDeregisterAny(conn: virConnectPtr,
                                               callbackID: self::libc::c_int)
-     -> self::libc::c_int;
+                                              -> self::libc::c_int;
     pub fn virConnectNetworkEventRegisterAny(conn: virConnectPtr,
                                              net: virNetworkPtr,
                                              eventID: self::libc::c_int,
-                                             cb:
-                                                 virConnectNetworkEventGenericCallback,
+                                             cb: virConnectNetworkEventGenericCallback,
                                              opaque: *mut self::libc::c_void,
                                              freecb: virFreeCallback)
-     -> self::libc::c_int;
+                                             -> self::libc::c_int;
     pub fn virConnectNetworkEventDeregisterAny(conn: virConnectPtr,
                                                callbackID: self::libc::c_int)
-     -> self::libc::c_int;
+                                               -> self::libc::c_int;
     pub fn virConnectNumOfNWFilters(conn: virConnectPtr) -> self::libc::c_int;
     pub fn virConnectListNWFilters(conn: virConnectPtr,
                                    names: *mut *mut self::libc::c_char,
-                                   maxnames: self::libc::c_int) -> self::libc::c_int;
+                                   maxnames: self::libc::c_int)
+                                   -> self::libc::c_int;
     pub fn virConnectListAllNWFilters(conn: virConnectPtr,
                                       filters: *mut *mut virNWFilterPtr,
-                                      flags: self::libc::c_uint) -> self::libc::c_int;
+                                      flags: self::libc::c_uint)
+                                      -> self::libc::c_int;
     pub fn virNWFilterLookupByName(conn: virConnectPtr,
                                    name: *const self::libc::c_char)
-     -> virNWFilterPtr;
+                                   -> virNWFilterPtr;
     pub fn virNWFilterLookupByUUID(conn: virConnectPtr,
                                    uuid: *const self::libc::c_uchar)
-     -> virNWFilterPtr;
+                                   -> virNWFilterPtr;
     pub fn virNWFilterLookupByUUIDString(conn: virConnectPtr,
                                          uuid: *const self::libc::c_char)
-     -> virNWFilterPtr;
+                                         -> virNWFilterPtr;
     pub fn virNWFilterDefineXML(conn: virConnectPtr,
                                 xmlDesc: *const self::libc::c_char)
-     -> virNWFilterPtr;
+                                -> virNWFilterPtr;
     pub fn virNWFilterUndefine(nwfilter: virNWFilterPtr) -> self::libc::c_int;
     pub fn virNWFilterRef(nwfilter: virNWFilterPtr) -> self::libc::c_int;
     pub fn virNWFilterFree(nwfilter: virNWFilterPtr) -> self::libc::c_int;
-    pub fn virNWFilterGetName(nwfilter: virNWFilterPtr)
-     -> *const self::libc::c_char;
+    pub fn virNWFilterGetName(nwfilter: virNWFilterPtr) -> *const self::libc::c_char;
     pub fn virNWFilterGetUUID(nwfilter: virNWFilterPtr,
-                              uuid: *mut self::libc::c_uchar) -> self::libc::c_int;
+                              uuid: *mut self::libc::c_uchar)
+                              -> self::libc::c_int;
     pub fn virNWFilterGetUUIDString(nwfilter: virNWFilterPtr,
                                     buf: *mut self::libc::c_char)
-     -> self::libc::c_int;
+                                    -> self::libc::c_int;
     pub fn virNWFilterGetXMLDesc(nwfilter: virNWFilterPtr,
                                  flags: self::libc::c_uint)
-     -> *mut self::libc::c_char;
+                                 -> *mut self::libc::c_char;
     pub fn virDomainOpenConsole(dom: virDomainPtr,
                                 devname: *const self::libc::c_char,
-                                st: virStreamPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                st: virStreamPtr,
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
     pub fn virDomainOpenChannel(dom: virDomainPtr,
-                                name: *const self::libc::c_char, st: virStreamPtr,
-                                flags: self::libc::c_uint) -> self::libc::c_int;
-    pub fn virDomainOpenGraphics(dom: virDomainPtr, idx: self::libc::c_uint,
-                                 fd: self::libc::c_int, flags: self::libc::c_uint)
-     -> self::libc::c_int;
-    pub fn virDomainInjectNMI(domain: virDomainPtr, flags: self::libc::c_uint)
-     -> self::libc::c_int;
+                                name: *const self::libc::c_char,
+                                st: virStreamPtr,
+                                flags: self::libc::c_uint)
+                                -> self::libc::c_int;
+    pub fn virDomainOpenGraphics(dom: virDomainPtr,
+                                 idx: self::libc::c_uint,
+                                 fd: self::libc::c_int,
+                                 flags: self::libc::c_uint)
+                                 -> self::libc::c_int;
+    pub fn virDomainInjectNMI(domain: virDomainPtr,
+                              flags: self::libc::c_uint)
+                              -> self::libc::c_int;
     pub fn virDomainFSTrim(dom: virDomainPtr,
                            mountPoint: *const self::libc::c_char,
                            minimum: self::libc::c_ulonglong,
-                           flags: self::libc::c_uint) -> self::libc::c_int;
-                           //
-                        //    pub const VIR_ERR_NONE: ::libc::c_uint = 0;
-                        //    pub const VIR_ERR_WARNING: ::libc::c_uint = 1;
-                        //    pub const VIR_ERR_ERROR: ::libc::c_uint = 2;
+                           flags: self::libc::c_uint)
+                           -> self::libc::c_int;
+    //    pub const VIR_ERR_NONE: ::libc::c_uint = 0;
+    //    pub const VIR_ERR_WARNING: ::libc::c_uint = 1;
+    //    pub const VIR_ERR_ERROR: ::libc::c_uint = 2;
 
 
 
-            pub fn virGetLastError() -> virErrorPtr;
-            pub fn virSaveLastError() -> virErrorPtr;
-            pub fn virResetLastError() -> ();
-            pub fn virResetError(err: virErrorPtr) -> ();
-            pub fn virFreeError(err: virErrorPtr) -> ();
-            pub fn virGetLastErrorMessage() -> *const ::libc::c_char;
-            pub fn virConnGetLastError(conn: virConnectPtr) -> virErrorPtr;
-            pub fn virConnResetLastError(conn: virConnectPtr) -> ();
-            pub fn virCopyLastError(to: virErrorPtr) -> ::libc::c_int;
-            pub fn virDefaultErrorFunc(err: virErrorPtr) -> ();
-            pub fn virSetErrorFunc(userData: *mut ::libc::c_void,
-                                   handler: virErrorFunc) -> ();
-            pub fn virConnSetErrorFunc(conn: virConnectPtr,
-                                       userData: *mut ::libc::c_void,
-                                       handler: virErrorFunc) -> ();
-            pub fn virConnCopyLastError(conn: virConnectPtr, to: virErrorPtr)
-             -> ::libc::c_int;
+    pub fn virGetLastError() -> virErrorPtr;
+    pub fn virSaveLastError() -> virErrorPtr;
+    pub fn virResetLastError() -> ();
+    pub fn virResetError(err: virErrorPtr) -> ();
+    pub fn virFreeError(err: virErrorPtr) -> ();
+    pub fn virGetLastErrorMessage() -> *const ::libc::c_char;
+    pub fn virConnGetLastError(conn: virConnectPtr) -> virErrorPtr;
+    pub fn virConnResetLastError(conn: virConnectPtr) -> ();
+    pub fn virCopyLastError(to: virErrorPtr) -> ::libc::c_int;
+    pub fn virDefaultErrorFunc(err: virErrorPtr) -> ();
+    pub fn virSetErrorFunc(userData: *mut ::libc::c_void, handler: virErrorFunc) -> ();
+    pub fn virConnSetErrorFunc(conn: virConnectPtr,
+                               userData: *mut ::libc::c_void,
+                               handler: virErrorFunc)
+                               -> ();
+    pub fn virConnCopyLastError(conn: virConnectPtr, to: virErrorPtr) -> ::libc::c_int;
 
 
 }

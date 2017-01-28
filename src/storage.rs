@@ -1,36 +1,35 @@
 use std::ffi::*;
-use std::{ptr};
+use std::ptr;
 use virt;
 use error::VirError;
 
 #[derive(Clone)]
 pub struct VirStoragePool {
-    pub ptr: virt::virStoragePoolPtr
+    pub ptr: virt::virStoragePoolPtr,
 }
 
 #[derive(Clone)]
 pub struct VirStoragePoolInfo {
-    pub ptr: virt::virStoragePoolInfo
+    pub ptr: virt::virStoragePoolInfo,
 }
 
 #[derive(Clone)]
 pub struct VirStorageVol {
-    pub ptr: virt::virStorageVolPtr
+    pub ptr: virt::virStorageVolPtr,
 }
 
 #[derive(Clone)]
 pub struct VirStorageVolInfo {
-    pub ptr: virt::virStorageVolInfo
+    pub ptr: virt::virStorageVolInfo,
 }
 
 impl VirStoragePool {
-
     pub fn create(self, flags: u32) -> Result<(), VirError> {
         unsafe {
             let result = virt::virStoragePoolCreate(self.ptr, flags);
             match result == -1 {
                 true => Err(VirError::new()),
-                false => Ok(())
+                false => Ok(()),
             }
         }
     }
@@ -40,7 +39,7 @@ impl VirStoragePool {
             let result = virt::virStoragePoolBuild(self.ptr, flags);
             match result == -1 {
                 true => Err(VirError::new()),
-                false => Ok(())
+                false => Ok(()),
             }
         }
     }
@@ -50,7 +49,7 @@ impl VirStoragePool {
             let result = virt::virStoragePoolDelete(self.ptr, flags);
             match result == -1 {
                 true => Err(VirError::new()),
-                false => Ok(())
+                false => Ok(()),
             }
         }
     }
@@ -60,7 +59,7 @@ impl VirStoragePool {
             let result = virt::virStoragePoolDestroy(self.ptr);
             match result == -1 {
                 true => Err(VirError::new()),
-                false => Ok(())
+                false => Ok(()),
             }
         }
     }
@@ -70,7 +69,7 @@ impl VirStoragePool {
             let result = virt::virStoragePoolUndefine(self.ptr);
             match result == -1 {
                 true => Err(VirError::new()),
-                false => Ok(())
+                false => Ok(()),
             }
         }
     }
@@ -81,7 +80,7 @@ impl VirStoragePool {
             let result = virt::virStoragePoolFree(self.ptr);
             match result == -1 {
                 true => Err(VirError::new()),
-                false => Ok(())
+                false => Ok(()),
             }
         }
     }
@@ -108,7 +107,7 @@ impl VirStoragePool {
             let result = virt::virStoragePoolGetInfo(self.ptr, info);
             match result == -1 {
                 true => Err(VirError::new()),
-                false => Ok(VirStoragePoolInfo{ptr: *info})
+                false => Ok(VirStoragePoolInfo { ptr: *info }),
             }
         }
     }
@@ -118,7 +117,9 @@ impl VirStoragePool {
             let result = virt::virStoragePoolGetName(self.ptr);
             match result.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(String::from_utf8_lossy(CStr::from_ptr(result).to_bytes()).into_owned())
+                false => {
+                    Ok(String::from_utf8_lossy(CStr::from_ptr(result).to_bytes()).into_owned())
+                }
             }
         }
     }
@@ -129,26 +130,28 @@ impl VirStoragePool {
         unsafe {
             match virt::virStoragePoolGetUUIDString(self.ptr, u) != -1 {
                 true => Ok(String::from_utf8_lossy(CStr::from_ptr(u).to_bytes()).into_owned()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn is_active(self) -> Result<(), VirError> {
-        unsafe{
+        unsafe {
             match virt::virStoragePoolIsActive(self.ptr) == 1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
-    pub fn xml_desc(self, flags: u32) -> Result<String, VirError>{
+    pub fn xml_desc(self, flags: u32) -> Result<String, VirError> {
         unsafe {
             let results = virt::virStoragePoolGetXMLDesc(self.ptr, flags);
             match results.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(String::from_utf8_lossy(CStr::from_ptr(results).to_bytes()).into_owned())
+                false => {
+                    Ok(String::from_utf8_lossy(CStr::from_ptr(results).to_bytes()).into_owned())
+                }
             }
         }
     }

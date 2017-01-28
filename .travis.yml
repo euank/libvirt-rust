@@ -1,17 +1,25 @@
 language: rust
+cache: cargo
 os: linux
 dist: trusty
 sudo: require
+branches:
+  only:
+  - master
+  - dev
+
 
 rust:
   - stable
 
 env:
-  - RUST_BACKTRACE=1
+  - RUST_BACKTRACE=1 PATH=$PATH:/home/travis/.cargo/bin
 
 install:
   - sudo apt-get -qy install libvirt-bin libvirt-dev qemu
   - sudo libvirtd --version
+  - (cargo install rustfmt || true)
 
 script:
+  - cargo fmt -- --write-mode=diff
   - cargo test --features=integ-tests
