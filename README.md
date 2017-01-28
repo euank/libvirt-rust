@@ -1,4 +1,5 @@
-# libvirt-rs
+# libvirt-rs 
+[![Build Status](https://travis-ci.org/euank/libvirt-rust.svg?branch=master)](https://travis-ci.org/euank/libvirt-rust)
 
 ## Overview
 Libvirt bindings for rust. This is in WIP but most of the common functions that are used by us is available here.
