@@ -10,6 +10,7 @@ keywords = ["virtualization", "kvm"]
 
 [dependencies]
 libc = "*"
+xml-rs = "*"
 
 [dependencies.libvirt-sys]
 path = "libvirt-sys"

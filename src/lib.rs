@@ -1,5 +1,6 @@
 extern crate libvirt_sys as virt;
 extern crate libc;
+extern crate xml;
 
 pub mod connection;
 pub mod node;

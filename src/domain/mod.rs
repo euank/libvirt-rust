@@ -1,5 +1,6 @@
 extern crate libc;
 
+mod structs;
 use std::ffi::*;
 use std::{string, ptr, mem};
 use node;
