@@ -8,10 +8,11 @@ mod integ_tests {
 
     #[test]
     fn it_creates_storage() {
-        let conn: Connection = Connection::new("qemu:///session".to_string(), ConnectionType::OPEN).expect("could not connect to qemu");
+        let conn: Connection = Connection::new("qemu:///session".to_string(), ConnectionType::OPEN)
+            .expect("could not connect to qemu");
 
         // Just in case it exists, delete it
-        conn.lookup_storage_pool_byname("integ-test-pool").map(|existing| { 
+        conn.lookup_storage_pool_byname("integ-test-pool").map(|existing| {
             existing.clone().destroy();
             existing.undefine().unwrap();
         });
@@ -23,7 +24,8 @@ mod integ_tests {
                 <path>/tmp/integ-test-pool</path>
             </target>
         </pool>
-        "#).expect("could not create integ-test-pool");
+        "#)
+            .expect("could not create integ-test-pool");
 
         // OVERWRITE so this test can be rerun more safely
         pool.clone().build(0).unwrap();
@@ -31,7 +33,8 @@ mod integ_tests {
 
         let pools = conn.list_storage_pool().unwrap();
 
-        assert!(pools.contains(&("integ-test-pool".to_string())), format!("{:?} didn't contain the integ test pool", pools));
+        assert!(pools.contains(&("integ-test-pool".to_string())),
+                format!("{:?} didn't contain the integ test pool", pools));
 
         pool.clone().destroy().unwrap();
         pool.undefine().unwrap();

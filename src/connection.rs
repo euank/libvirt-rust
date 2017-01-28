@@ -11,13 +11,12 @@ use self::libc::funcs::c95::stdlib;
 
 #[derive(Clone)]
 pub struct Connection {
-    conn: virt::virConnectPtr
+    conn: virt::virConnectPtr,
 }
 
 pub enum ConnectionType {
     OPEN,
-    READONLY
-    //TODO: Add Auth Option
+    READONLY, //TODO: Add Auth Option
 }
 
 impl Connection {
@@ -25,13 +24,13 @@ impl Connection {
         unsafe {
             let cUri = CString::new(uri).unwrap();
             let ptr: virt::virConnectPtr = match conntype {
-                ConnectionType::OPEN => { virt::virConnectOpen(cUri.as_ptr()) },
-                ConnectionType::READONLY => { virt::virConnectOpenReadOnly(cUri.as_ptr()) }
+                ConnectionType::OPEN => virt::virConnectOpen(cUri.as_ptr()),
+                ConnectionType::READONLY => virt::virConnectOpenReadOnly(cUri.as_ptr()),
             };
 
             match ptr.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(Connection{conn:ptr})
+                false => Ok(Connection { conn: ptr }),
             }
         }
     }
@@ -41,7 +40,7 @@ impl Connection {
             let cap = virt::virConnectGetCapabilities(self.conn);
             match cap.is_null() {
                 false => Ok(String::from_utf8_lossy(CStr::from_ptr(cap).to_bytes()).into_owned()),
-                true => Err(VirError::new())
+                true => Err(VirError::new()),
             }
         }
     }
@@ -51,7 +50,9 @@ impl Connection {
             let results = virt::virConnectGetType(self.conn);
             match results.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(String::from_utf8_lossy(CStr::from_ptr(results).to_bytes()).into_owned())
+                false => {
+                    Ok(String::from_utf8_lossy(CStr::from_ptr(results).to_bytes()).into_owned())
+                }
             }
         }
     }
@@ -62,7 +63,7 @@ impl Connection {
             let results = virt::virNodeGetInfo(self.conn, nptr);
             match results == -1 {
                 true => Err(VirError::new()),
-                false => Ok(NodeInfo{ptr:nptr})
+                false => Ok(NodeInfo { ptr: nptr }),
             }
         }
     }
@@ -72,7 +73,7 @@ impl Connection {
             let name = virt::virConnectGetHostname(self.conn);
             match name.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned())
+                false => Ok(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned()),
             }
         }
     }
@@ -86,7 +87,7 @@ impl Connection {
                     let ver = v;
                     stdlib::free(v as *mut libc::types::common::c95::c_void);
                     Ok(ver as u64)
-                },
+                }
                 false => {
                     stdlib::free(v as *mut libc::types::common::c95::c_void);
                     Err(VirError::new())
@@ -104,11 +105,11 @@ impl Connection {
                     let ver = v;
                     stdlib::free(v as *mut libc::types::common::c95::c_void);
                     Ok(ver as u64)
-                },
+                }
                 false => {
                     stdlib::free(v as *mut libc::types::common::c95::c_void);
                     Err(VirError::new())
-                },
+                }
             }
         }
     }
@@ -118,7 +119,7 @@ impl Connection {
             let name = virt::virConnectGetType(self.conn);
             match name == ptr::null() {
                 true => Err(VirError::new()),
-                false => Ok(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned())
+                false => Ok(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned()),
             }
         }
     }
@@ -127,7 +128,7 @@ impl Connection {
         unsafe {
             match virt::virConnectIsAlive(self.conn) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -136,7 +137,7 @@ impl Connection {
         unsafe {
             match virt::virConnectIsEncrypted(self.conn) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -145,7 +146,7 @@ impl Connection {
         unsafe {
             match virt::virConnectIsSecure(self.conn) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -155,7 +156,7 @@ impl Connection {
             let count = virt::virConnectNumOfDefinedDomains(self.conn);
             match count == -1 {
                 true => Err(VirError::new()),
-                false => Ok(count as i32)
+                false => Ok(count as i32),
             }
         }
     }
@@ -166,7 +167,7 @@ impl Connection {
             let count = virt::virConnectNumOfDomains(self.conn);
             match count == -1 {
                 true => Err(VirError::new()),
-                false => Ok(count as i32)
+                false => Ok(count as i32),
             }
         }
     }
@@ -186,8 +187,8 @@ impl Connection {
                     }
                     stdlib::free(ids as *mut libc::types::common::c95::c_void);
                     Ok(list)
-                },
-                false => Err(VirError::new())
+                }
+                false => Err(VirError::new()),
             }
         }
     }
@@ -201,11 +202,12 @@ impl Connection {
                 true => {
                     let mut list: Vec<String> = Vec::new();
                     for name in names {
-                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned());
+                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes())
+                            .into_owned());
                     }
                     Ok(list)
-                },
-                false => Err(VirError::new())
+                }
+                false => Err(VirError::new()),
             }
         }
     }
@@ -219,11 +221,11 @@ impl Connection {
                     let mut list: Vec<VirDomain> = Vec::new();
                     let d = slice::from_raw_parts::<virt::virDomainPtr>(&*doms, num as usize);
                     for dom in d.to_vec() {
-                        list.push(VirDomain{ptr: dom});
+                        list.push(VirDomain { ptr: dom });
                     }
                     stdlib::free(doms as *mut libc::types::common::c95::c_void);
                     Ok(list)
-                },
+                }
                 false => {
                     stdlib::free(doms as *mut libc::types::common::c95::c_void);
                     Err(VirError::new())
@@ -241,11 +243,12 @@ impl Connection {
                     let mut list: Vec<String> = Vec::new();
                     let n = slice::from_raw_parts(names, num as usize);
                     for name in n.to_vec() {
-                        list.push(String::from_utf8_lossy(CStr::from_ptr(&name).to_bytes()).into_owned());
+                        list.push(String::from_utf8_lossy(CStr::from_ptr(&name).to_bytes())
+                            .into_owned());
                     }
                     Ok(list)
-                },
-                false => Err(VirError::new())
+                }
+                false => Err(VirError::new()),
             }
         }
     }
@@ -259,11 +262,12 @@ impl Connection {
                 true => {
                     let mut list: Vec<String> = Vec::new();
                     for name in names {
-                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned());
+                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes())
+                            .into_owned());
                     }
                     Ok(list)
-                },
-                false => Err(VirError::new())
+                }
+                false => Err(VirError::new()),
             }
         }
     }
@@ -277,22 +281,23 @@ impl Connection {
                 true => {
                     let mut list: Vec<String> = Vec::new();
                     for name in names {
-                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned());
+                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes())
+                            .into_owned());
                     }
                     Ok(list)
-                },
-                false => Err(VirError::new())
+                }
+                false => Err(VirError::new()),
             }
         }
     }
 
-    pub fn lookup_domain_byid(&self, id: i32) -> Result<VirDomain, VirError>  {
+    pub fn lookup_domain_byid(&self, id: i32) -> Result<VirDomain, VirError> {
         unsafe {
             let dptr = virt::virDomainLookupByID(self.conn, id);
 
             match dptr.is_null() {
-                false => Ok(VirDomain{ptr: dptr}),
-                true => Err(VirError::new())
+                false => Ok(VirDomain { ptr: dptr }),
+                true => Err(VirError::new()),
             }
 
         }
@@ -302,8 +307,8 @@ impl Connection {
         unsafe {
             let dptr = virt::virDomainLookupByName(self.conn, CString::new(name).unwrap().as_ptr());
             match dptr.is_null() {
-                false => Ok(VirDomain{ptr: dptr}),
-                true => Err(VirError::new())
+                false => Ok(VirDomain { ptr: dptr }),
+                true => Err(VirError::new()),
             }
         }
     }
@@ -313,8 +318,8 @@ impl Connection {
             let cxml = CString::new(xml).unwrap();
             let pDomain = virt::virDomainCreateXML(self.conn, cxml.as_ptr(), flags);
             match pDomain.is_null() {
-                false => Ok(VirDomain{ptr: pDomain}),
-                true => Err(VirError::new())
+                false => Ok(VirDomain { ptr: pDomain }),
+                true => Err(VirError::new()),
             }
         }
     }
@@ -326,17 +331,18 @@ impl Connection {
 
             match pDomain.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(VirDomain{ptr: pDomain})
+                false => Ok(VirDomain { ptr: pDomain }),
             }
         }
     }
 
     pub fn lookup_storage_pool_byname(&self, name: &str) -> Result<VirStoragePool, VirError> {
         unsafe {
-            let dptr = virt::virStoragePoolLookupByName(self.conn, CString::new(name).unwrap().as_ptr());
+            let dptr = virt::virStoragePoolLookupByName(self.conn,
+                                                        CString::new(name).unwrap().as_ptr());
             match dptr.is_null() {
-                false => Ok(VirStoragePool{ptr: dptr}),
-                true => Err(VirError::new())
+                false => Ok(VirStoragePool { ptr: dptr }),
+                true => Err(VirError::new()),
             }
         }
     }
@@ -348,7 +354,7 @@ impl Connection {
 
             match pDomain.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(VirStoragePool{ptr: pDomain})
+                false => Ok(VirStoragePool { ptr: pDomain }),
             }
         }
     }
@@ -360,7 +366,7 @@ impl Connection {
 
             match pDomain.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(VirStoragePool{ptr: pDomain})
+                false => Ok(VirStoragePool { ptr: pDomain }),
             }
         }
     }
@@ -369,7 +375,7 @@ impl Connection {
         unsafe {
             match virt::virConnectClose(self.conn) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }

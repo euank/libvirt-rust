@@ -9,39 +9,38 @@ use libc::funcs::c95::stdlib;
 
 #[derive(Clone)]
 pub struct VirDomain {
-    pub ptr: virt::virDomainPtr
+    pub ptr: virt::virDomainPtr,
 }
 
 #[derive(Clone)]
 struct VirDomainBlockInfo {
-    ptr: virt::virDomainBlockInfoPtr
+    ptr: virt::virDomainBlockInfoPtr,
 }
 
 #[derive(Clone)]
 pub struct VirDomainInfo {
-    ptr: virt::virDomainInfoPtr
+    ptr: virt::virDomainInfoPtr,
 }
 
 #[derive(Clone)]
 pub struct VirDomainInterfaceStats {
-    pub rx_bytes:   i64,
-	pub rx_packets: i64,
-	pub rx_errs:    i64,
-	pub rx_drop:    i64,
-	pub tx_bytes:   i64,
-	pub tx_packets: i64,
-	pub tx_errs:    i64,
-	pub tx_drop:    i64,
+    pub rx_bytes: i64,
+    pub rx_packets: i64,
+    pub rx_errs: i64,
+    pub rx_drop: i64,
+    pub tx_bytes: i64,
+    pub tx_packets: i64,
+    pub tx_errs: i64,
+    pub tx_drop: i64,
 }
 
 impl VirDomain {
-
     pub fn name(self) -> Result<String, VirError> {
         unsafe {
             let name = virt::virDomainGetName(self.ptr);
             match name.is_null() {
                 true => Err(VirError::new()),
-                false => Ok(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned())
+                false => Ok(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned()),
             }
         }
     }
@@ -50,7 +49,7 @@ impl VirDomain {
         unsafe {
             match virt::virDomainFree(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -59,7 +58,7 @@ impl VirDomain {
         unsafe {
             match virt::virDomainCreate(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -68,61 +67,61 @@ impl VirDomain {
         unsafe {
             match virt::virDomainUndefine(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn destroy(self) -> Result<(), VirError> {
-        unsafe{
+        unsafe {
             match virt::virDomainDestroy(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn shutdown(self) -> Result<(), VirError> {
-        unsafe{
+        unsafe {
             match virt::virDomainShutdown(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn reboot(self, flags: u32) -> Result<(), VirError> {
-        unsafe{
+        unsafe {
             match virt::virDomainReboot(self.ptr, flags) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn suspend(self) -> Result<(), VirError> {
-        unsafe{
+        unsafe {
             match virt::virDomainSuspend(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn resume(self) -> Result<(), VirError> {
-        unsafe{
+        unsafe {
             match virt::virDomainResume(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn active(self) -> Result<(), VirError> {
-        unsafe{
+        unsafe {
             match virt::virDomainIsActive(self.ptr) == -1 {
                 false => Ok(()),
-                true => Err(VirError::new())
+                true => Err(VirError::new()),
             }
         }
     }
@@ -131,7 +130,7 @@ impl VirDomain {
         unsafe {
             match virt::virDomainSetMemory(self.ptr, mem) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -140,7 +139,7 @@ impl VirDomain {
         unsafe {
             match virt::virDomainSetMemoryFlags(self.ptr, mem, flags) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -149,17 +148,18 @@ impl VirDomain {
         unsafe {
             match virt::virDomainSetMaxMemory(self.ptr, mem) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn set_autostart(self, autostart: bool) -> bool {
         unsafe {
-            virt::virDomainSetAutostart(self.ptr, match autostart {
-                true => 1,
-                false => 0
-            }) != -1
+            virt::virDomainSetAutostart(self.ptr,
+                                        match autostart {
+                                            true => 1,
+                                            false => 0,
+                                        }) != -1
         }
     }
 
@@ -167,7 +167,7 @@ impl VirDomain {
         unsafe {
             match virt::virDomainSetVcpus(self.ptr, cpu) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -176,7 +176,7 @@ impl VirDomain {
         unsafe {
             match virt::virDomainSetVcpusFlags(self.ptr, cpu, flags) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -193,7 +193,7 @@ impl VirDomain {
         unsafe {
             let results = virt::virDomainGetXMLDesc(self.ptr, flags);
             if results == ptr::null_mut() {
-                return Err(VirError::new())
+                return Err(VirError::new());
             }
             Ok(String::from_utf8_lossy(CStr::from_ptr(results).to_bytes()).into_owned())
         }
@@ -203,18 +203,19 @@ impl VirDomain {
         unsafe {
             let path = CString::new(name).unwrap();
             let size = mem::size_of::<virt::virDomainInterfaceStatsStruct>() as libc::size_t;
-            let stats: virt::virDomainInterfaceStatsPtr = stdlib::malloc(size) as virt::virDomainInterfaceStatsPtr;
+            let stats: virt::virDomainInterfaceStatsPtr = stdlib::malloc(size) as
+                                                          virt::virDomainInterfaceStatsPtr;
             let results = virt::virDomainInterfaceStats(self.ptr, path.as_ptr(), stats, size);
             if results != -1 {
                 let vs = VirDomainInterfaceStats {
-                            rx_bytes:   (*stats).rx_bytes,
-                        	rx_packets: (*stats).rx_packets,
-                        	rx_errs:    (*stats).rx_errs,
-                        	rx_drop:    (*stats).rx_drop,
-                        	tx_bytes:   (*stats).tx_bytes,
-                        	tx_packets: (*stats).tx_packets,
-                        	tx_errs:    (*stats).tx_errs,
-                        	tx_drop:    (*stats).tx_drop,
+                    rx_bytes: (*stats).rx_bytes,
+                    rx_packets: (*stats).rx_packets,
+                    rx_errs: (*stats).rx_errs,
+                    rx_drop: (*stats).rx_drop,
+                    tx_bytes: (*stats).tx_bytes,
+                    tx_packets: (*stats).tx_packets,
+                    tx_errs: (*stats).tx_errs,
+                    tx_drop: (*stats).tx_drop,
                 };
                 stdlib::free(stats as *mut libc::types::common::c95::c_void);
                 Ok(vs)
@@ -251,7 +252,7 @@ impl VirDomain {
             let id = virt::virDomainGetID(self.ptr);
             match id == 0 {
                 true => Err(VirError::new()),
-                false => Ok(id as u16)
+                false => Ok(id as u16),
             }
         }
     }
@@ -263,10 +264,10 @@ impl VirDomain {
 
             match virt::virDomainGetInfo(self.ptr, info) != -1 {
                 true => {
-                    let d = VirDomainInfo{ptr: info};
+                    let d = VirDomainInfo { ptr: info };
                     stdlib::free(info as *mut libc::types::common::c95::c_void);
                     Ok(d)
-                },
+                }
                 false => {
                     stdlib::free(info as *mut libc::types::common::c95::c_void);
                     Err(VirError::new())
@@ -280,49 +281,33 @@ impl VirDomain {
             let mut array = [0i8; 37];
             let u = &mut array as *mut [i8] as *mut i8;
             match virt::virDomainGetUUIDString(self.ptr, u) == 0 {
-                true => {
-                    Ok(String::from_utf8_lossy(CStr::from_ptr(u).to_bytes()).into_owned())
-                },
-                false => {
-                    Err(VirError::new())
-                }
+                true => Ok(String::from_utf8_lossy(CStr::from_ptr(u).to_bytes()).into_owned()),
+                false => Err(VirError::new()),
             }
         }
     }
-
 }
 
 impl VirDomainInfo {
     pub fn state(self) -> i8 {
-        unsafe {
-            (*self.ptr).state as i8
-        }
+        unsafe { (*self.ptr).state as i8 }
     }
 
     pub fn max_mem(self) -> u64 {
-        unsafe {
-            (*self.ptr).maxMem as u64
-        }
+        unsafe { (*self.ptr).maxMem as u64 }
     }
 
     pub fn memory(self) -> u64 {
-        unsafe {
-            (*self.ptr).memory as u64
-        }
+        unsafe { (*self.ptr).memory as u64 }
     }
 
     pub fn nr_virt_cpu(self) -> u64 {
-        unsafe {
-            (*self.ptr).nrVirtCpu as u64
-        }
+        unsafe { (*self.ptr).nrVirtCpu as u64 }
     }
 
     pub fn cpu_time(self) -> u64 {
-        unsafe {
-            (*self.ptr).cpuTime as u64
-        }
+        unsafe { (*self.ptr).cpuTime as u64 }
     }
-
 }
 
 //TODO implement VirDomainBlockInfo

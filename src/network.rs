@@ -6,43 +6,42 @@ use error::VirError;
 
 #[derive(Clone)]
 pub struct VirNetwork {
-    ptr: virt::virNetworkPtr
+    ptr: virt::virNetworkPtr,
 }
 
 impl VirNetwork {
-
-    pub fn create(self) -> Result<(), VirError>{
+    pub fn create(self) -> Result<(), VirError> {
         unsafe {
             match virt::virNetworkCreate(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
-    pub fn free(self) -> Result<(), VirError>{
+    pub fn free(self) -> Result<(), VirError> {
         unsafe {
             match virt::virNetworkFree(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
-    pub fn destroy(self) -> Result<(), VirError>{
+    pub fn destroy(self) -> Result<(), VirError> {
         unsafe {
             match virt::virNetworkDestroy(self.ptr) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
 
     pub fn is_active(self) -> Result<(), VirError> {
-        unsafe{
+        unsafe {
             match virt::virNetworkIsActive(self.ptr) == 1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -51,7 +50,7 @@ impl VirNetwork {
         unsafe {
             match virt::virNetworkIsPersistent(self.ptr) == 1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -63,10 +62,10 @@ impl VirNetwork {
                 true => {
                     match *out != -1 {
                         true => Ok(()),
-                        false => Err(VirError::new())
+                        false => Err(VirError::new()),
                     }
-                },
-                false => Err(VirError::new())
+                }
+                false => Err(VirError::new()),
             }
         }
     }
@@ -77,12 +76,13 @@ impl VirNetwork {
                 true => 1 as *mut i32,
                 _ => 0 as *mut i32,
             };
-            match virt::virNetworkGetAutostart(self.ptr, match val {
-                true => 1 as *mut i32,
-                false => 0 as *mut i32
-            }) != -1 {
+            match virt::virNetworkGetAutostart(self.ptr,
+                                               match val {
+                                                   true => 1 as *mut i32,
+                                                   false => 0 as *mut i32,
+                                               }) != -1 {
                 true => Ok(()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -91,8 +91,10 @@ impl VirNetwork {
         unsafe {
             let results = virt::virNetworkGetName(self.ptr);
             match !results.is_null() {
-                true => Ok(String::from_utf8_lossy(CStr::from_ptr(results).to_bytes()).into_owned()),
-                false => Err(VirError::new())
+                true => {
+                    Ok(String::from_utf8_lossy(CStr::from_ptr(results).to_bytes()).into_owned())
+                }
+                false => Err(VirError::new()),
             }
         }
     }
@@ -103,7 +105,7 @@ impl VirNetwork {
             let u = &mut array as *mut [i8] as *mut i8;
             match virt::virNetworkGetUUIDString(self.ptr, u) != -1 {
                 true => Ok(String::from_utf8_lossy(CStr::from_ptr(u).to_bytes()).into_owned()),
-                false => Err(VirError::new())
+                false => Err(VirError::new()),
             }
         }
     }
@@ -118,5 +120,4 @@ impl VirNetwork {
             }
         }
     }
-
 }
