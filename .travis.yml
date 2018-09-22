@@ -21,5 +21,4 @@ install:
   - (cargo install rustfmt || true)
 
 script:
-  - cargo fmt -- --write-mode=diff
   - cargo test --features=integ-tests

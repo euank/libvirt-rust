@@ -9,8 +9,8 @@ keywords = ["virtualization", "kvm"]
 
 
 [dependencies]
-libc = "*"
-xml-rs = "*"
+libc = "0.2"
+xml-rs = "0.8"
 
 [dependencies.libvirt-sys]
 path = "libvirt-sys"

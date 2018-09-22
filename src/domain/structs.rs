@@ -1,5 +1,5 @@
-use xml;
 use std::io::Write;
+use xml;
 use xml::writer::events::XmlEvent;
 
 #[derive(PartialEq, Debug)]
@@ -28,7 +28,9 @@ impl<'a> Domain<'a> {
         {
             let idstr = self.id.map(|e| e.to_string());
 
-            let mut w = xml::EmitterConfig::default().perform_indent(true).create_writer(&mut b);
+            let mut w = xml::EmitterConfig::default()
+                .perform_indent(true)
+                .create_writer(&mut b);
             let mut domain_ev = XmlEvent::start_element("domain").attr("type", self.type_);
 
             domain_ev = match idstr {
@@ -44,7 +46,6 @@ impl<'a> Domain<'a> {
         String::from_utf8_lossy(&b).into_owned()
     }
 }
-
 
 #[cfg(test)]
 mod test {
