@@ -1,7 +1,7 @@
+use error::VirError;
 use std::ffi::*;
 use std::ptr;
 use virt;
-use error::VirError;
 
 #[derive(Clone)]
 pub struct VirStoragePool {
@@ -74,7 +74,6 @@ impl VirStoragePool {
         }
     }
 
-
     pub fn free(self) -> Result<(), VirError> {
         unsafe {
             let result = virt::virStoragePoolFree(self.ptr);
@@ -91,12 +90,10 @@ impl VirStoragePool {
             let result = virt::virStoragePoolGetAutostart(self.ptr, out);
             match result == -1 || out.is_null() {
                 true => Err(VirError::new()),
-                false => {
-                    match *out {
-                        1 => Ok(true),
-                        _ => Ok(false),
-                    }
-                }
+                false => match *out {
+                    1 => Ok(true),
+                    _ => Ok(false),
+                },
             }
         }
     }

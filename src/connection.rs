@@ -1,12 +1,12 @@
 extern crate libc;
 
-use std::ffi::*;
-use std::{ptr, mem, slice};
-use virt;
-use node::NodeInfo;
 use domain::VirDomain;
-use storage::VirStoragePool;
 use error::VirError;
+use node::NodeInfo;
+use std::ffi::*;
+use std::{mem, ptr, slice};
+use storage::VirStoragePool;
+use virt;
 
 #[derive(Clone)]
 pub struct Connection {
@@ -160,7 +160,6 @@ impl Connection {
         }
     }
 
-
     pub fn count_domain(&self) -> Result<i32, VirError> {
         unsafe {
             let count = virt::virConnectNumOfDomains(self.conn);
@@ -201,8 +200,9 @@ impl Connection {
                 true => {
                     let mut list: Vec<String> = Vec::new();
                     for name in names {
-                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes())
-                            .into_owned());
+                        list.push(
+                            String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned(),
+                        );
                     }
                     Ok(list)
                 }
@@ -242,8 +242,9 @@ impl Connection {
                     let mut list: Vec<String> = Vec::new();
                     let n = slice::from_raw_parts(names, num as usize);
                     for name in n.to_vec() {
-                        list.push(String::from_utf8_lossy(CStr::from_ptr(&name).to_bytes())
-                            .into_owned());
+                        list.push(
+                            String::from_utf8_lossy(CStr::from_ptr(&name).to_bytes()).into_owned(),
+                        );
                     }
                     Ok(list)
                 }
@@ -261,8 +262,9 @@ impl Connection {
                 true => {
                     let mut list: Vec<String> = Vec::new();
                     for name in names {
-                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes())
-                            .into_owned());
+                        list.push(
+                            String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned(),
+                        );
                     }
                     Ok(list)
                 }
@@ -280,8 +282,9 @@ impl Connection {
                 true => {
                     let mut list: Vec<String> = Vec::new();
                     for name in names {
-                        list.push(String::from_utf8_lossy(CStr::from_ptr(name).to_bytes())
-                            .into_owned());
+                        list.push(
+                            String::from_utf8_lossy(CStr::from_ptr(name).to_bytes()).into_owned(),
+                        );
                     }
                     Ok(list)
                 }
@@ -298,7 +301,6 @@ impl Connection {
                 false => Ok(VirDomain { ptr: dptr }),
                 true => Err(VirError::new()),
             }
-
         }
     }
 
@@ -337,8 +339,8 @@ impl Connection {
 
     pub fn lookup_storage_pool_byname(&self, name: &str) -> Result<VirStoragePool, VirError> {
         unsafe {
-            let dptr = virt::virStoragePoolLookupByName(self.conn,
-                                                        CString::new(name).unwrap().as_ptr());
+            let dptr =
+                virt::virStoragePoolLookupByName(self.conn, CString::new(name).unwrap().as_ptr());
             match dptr.is_null() {
                 false => Ok(VirStoragePool { ptr: dptr }),
                 true => Err(VirError::new()),

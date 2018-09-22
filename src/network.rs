@@ -1,8 +1,7 @@
+use error::VirError;
 use std::ffi::*;
 use std::string;
 use virt;
-use error::VirError;
-
 
 #[derive(Clone)]
 pub struct VirNetwork {
@@ -59,12 +58,10 @@ impl VirNetwork {
         unsafe {
             let out: *mut i32 = 0 as *mut i32;
             match virt::virNetworkGetAutostart(self.ptr, out) != -1 {
-                true => {
-                    match *out != -1 {
-                        true => Ok(()),
-                        false => Err(VirError::new()),
-                    }
-                }
+                true => match *out != -1 {
+                    true => Ok(()),
+                    false => Err(VirError::new()),
+                },
                 false => Err(VirError::new()),
             }
         }
@@ -76,11 +73,14 @@ impl VirNetwork {
                 true => 1 as *mut i32,
                 _ => 0 as *mut i32,
             };
-            match virt::virNetworkGetAutostart(self.ptr,
-                                               match val {
-                                                   true => 1 as *mut i32,
-                                                   false => 0 as *mut i32,
-                                               }) != -1 {
+            match virt::virNetworkGetAutostart(
+                self.ptr,
+                match val {
+                    true => 1 as *mut i32,
+                    false => 0 as *mut i32,
+                },
+            ) != -1
+            {
                 true => Ok(()),
                 false => Err(VirError::new()),
             }

@@ -1,6 +1,6 @@
+use error::VirError;
 use std::ffi::*;
 use virt;
-use error::VirError;
 
 #[derive(Clone)]
 struct VirInterface {

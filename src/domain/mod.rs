@@ -1,11 +1,11 @@
 extern crate libc;
 
 mod structs;
-use std::ffi::*;
-use std::{string, ptr, mem};
-use node;
-use virt;
 use error::VirError;
+use node;
+use std::ffi::*;
+use std::{mem, ptr, string};
+use virt;
 
 #[derive(Clone)]
 pub struct VirDomain {
@@ -155,11 +155,13 @@ impl VirDomain {
 
     pub fn set_autostart(self, autostart: bool) -> bool {
         unsafe {
-            virt::virDomainSetAutostart(self.ptr,
-                                        match autostart {
-                                            true => 1,
-                                            false => 0,
-                                        }) != -1
+            virt::virDomainSetAutostart(
+                self.ptr,
+                match autostart {
+                    true => 1,
+                    false => 0,
+                },
+            ) != -1
         }
     }
 
@@ -203,8 +205,8 @@ impl VirDomain {
         unsafe {
             let path = CString::new(name).unwrap();
             let size = mem::size_of::<virt::virDomainInterfaceStatsStruct>() as libc::size_t;
-            let stats: virt::virDomainInterfaceStatsPtr = libc::malloc(size) as
-                                                          virt::virDomainInterfaceStatsPtr;
+            let stats: virt::virDomainInterfaceStatsPtr =
+                libc::malloc(size) as virt::virDomainInterfaceStatsPtr;
             let results = virt::virDomainInterfaceStats(self.ptr, path.as_ptr(), stats, size);
             if results != -1 {
                 let vs = VirDomainInterfaceStats {
